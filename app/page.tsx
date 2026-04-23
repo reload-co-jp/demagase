@@ -19,15 +19,30 @@ const Page: FC = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-      {/* Today's article */}
       <section>
-        <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-          今日の雑学デマ
+        <div
+          style={{
+            marginBottom: "0.75rem",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.45rem 0.8rem",
+            borderRadius: "999px",
+            background: "var(--accent-soft)",
+            border: "1px solid var(--border)",
+          }}
+        >
+          <span style={{ fontSize: "0.95rem" }}>✨</span>
+          <p style={{ fontSize: "0.78rem", color: "var(--text)", fontWeight: 700 }}>
+            今日の雑学デマ
+          </p>
+        </div>
+        <p style={{ color: "var(--muted)", marginBottom: "1rem", fontSize: "0.95rem" }}>
+          ひとつ読むだけで、誰かに話したくなる検証ネタ。
         </p>
         <TodayArticle articles={articles} />
       </section>
 
-      {/* New articles */}
       <section>
         <h2 className="section-title">新着記事</h2>
         <div className="grid-3">
@@ -37,12 +52,11 @@ const Page: FC = () => {
         </div>
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <Link href="/articles/" className="btn">
-            すべての記事を見る →
+            すべての記事を見る
           </Link>
         </div>
       </section>
 
-      {/* Categories */}
       <section>
         <h2 className="section-title">カテゴリ</h2>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
@@ -59,7 +73,6 @@ const Page: FC = () => {
         </div>
       </section>
 
-      {/* Verdict legend */}
       <section>
         <h2 className="section-title">判定ラベルについて</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -71,7 +84,7 @@ const Page: FC = () => {
                 alignItems: "center",
                 gap: "1rem",
                 padding: "0.75rem 1rem",
-                background: "var(--surface)",
+                background: "rgba(255,255,255,0.72)",
                 border: "1px solid var(--border)",
                 borderRadius: "8px",
               }}

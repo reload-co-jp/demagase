@@ -4,11 +4,11 @@ import { Verdict } from "types/article"
 type Config = { icon: string; label: string; color: string; bg: string }
 
 const VERDICT: Record<Verdict, Config> = {
-  false: { icon: "❌", label: "誤り", color: "#fff", bg: "#b91c1c" },
-  partial: { icon: "⚠️", label: "一部誤り", color: "#000", bg: "#e8a400" },
-  unconfirmed: { icon: "🤔", label: "有力説だが確定ではない", color: "#000", bg: "#d29922" },
-  true: { icon: "⭕", label: "正しい", color: "#fff", bg: "#16a34a" },
-  unknown: { icon: "❓", label: "不明", color: "#fff", bg: "#6e7681" },
+  false: { icon: "❌", label: "誤り", color: "#fff", bg: "#ff6b6b" },
+  partial: { icon: "⚠️", label: "一部誤り", color: "#5b3a00", bg: "#ffcf5c" },
+  unconfirmed: { icon: "🤔", label: "有力説だが確定ではない", color: "#5d3a00", bg: "#ffb86b" },
+  true: { icon: "⭕", label: "正しい", color: "#fff", bg: "#3ecf8e" },
+  unknown: { icon: "❓", label: "不明", color: "#fff", bg: "#8f86b3" },
 }
 
 type Props = {

@@ -74,7 +74,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 fontSize: "1.125rem",
                 fontWeight: 800,
                 color: "var(--text)",
-                letterSpacing: "-0.02em",
                 textDecoration: "none",
               }}
             >
@@ -107,7 +106,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <div className="container" style={{ padding: "0" }}>
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
-              &copy; 2026 DemaGase — 情報は正確を期していますが、専門家への相談を推奨します。
+              &copy; 2026 DemaGase - 情報は正確を期していますが、専門家への相談を推奨します。
             </p>
           </div>
         </footer>

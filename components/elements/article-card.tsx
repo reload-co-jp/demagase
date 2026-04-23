@@ -40,10 +40,11 @@ export const ArticleCard: FC<Props> = ({ article }) => (
       <span
         style={{
           fontSize: "0.75rem",
-          color: "var(--accent)",
-          background: "rgba(88,166,255,0.1)",
-          padding: "0.125rem 0.5rem",
+          color: "var(--accent-secondary)",
+          background: "#eef1ff",
+          padding: "0.18rem 0.55rem",
           borderRadius: "100px",
+          fontWeight: 700,
         }}
       >
         {article.category}

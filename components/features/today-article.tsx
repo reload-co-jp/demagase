@@ -26,8 +26,8 @@ export const TodayArticle = ({ articles }: Props) => {
     >
       <div
         style={{
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
+          background: "linear-gradient(135deg, #ffffff 0%, #fff1e6 100%)",
+          border: "1px solid var(--border-strong)",
           borderRadius: "12px",
           padding: "1.75rem",
           transition: "border-color 0.15s",
@@ -49,7 +49,7 @@ export const TodayArticle = ({ articles }: Props) => {
           {article.title}
         </h2>
         <p style={{ color: "var(--muted)", marginBottom: "1rem" }}>{article.claim}</p>
-        <p style={{ fontSize: "0.875rem", color: "var(--accent)" }}>詳しく読む →</p>
+        <p style={{ fontSize: "0.9rem", color: "var(--accent)", fontWeight: 700 }}>詳しく読む</p>
       </div>
     </Link>
   )
