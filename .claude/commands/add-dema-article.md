@@ -1,21 +1,21 @@
 ---
-description: DemaGase の myth-check 記事 JSON を data/articles/ に追加・更新する。新しい日本語トリビア/俗説検証記事の作成、Article スキーマへの変換、verdict ラベルの選択、重複 ID 回避、記事データの検証に使用する。
+description: DemaGase の myth-check 記事を data/articles.json に追加・更新する。新しい日本語トリビア/俗説検証記事の作成、Article スキーマへの変換、verdict ラベルの選択、重複 ID 回避、記事データの検証に使用する。
 ---
 
 # Add Dema Article
 
 ## Workflow
 
-1. `data/articles/`、`types/article.ts`、`lib/articles.ts` が存在することを確認する。
-2. `types/article.ts` と近くの記事 JSON ファイルを 1〜2 件読んでから編集する。スキーマとトーンが異なる場合はリポジトリの現行仕様を優先する。
-3. `rg -n "<topic>|<candidate_id>" data/articles README.md app` で重複を検索する。
+1. `data/articles.json`、`types/article.ts`、`lib/articles.ts` が存在することを確認する。
+2. `types/article.ts` と `data/articles.json` の既存エントリを数件読んでから編集する。スキーマとトーンが異なる場合はリポジトリの現行仕様を優先する。
+3. `rg -n "<topic>|<candidate_id>" data/articles.json app` で重複を検索する。
 4. 現在の情報や重要な事実が必要な場合は、執筆前に一次情報源や権威ある情報源を参照する。辞書、公的機関、学術論文、信頼できる百科事典、専門家の見解を優先し、まとめブログは避ける。
-5. ユーザーが複数記事を求めない限り、`data/articles/<id>.json` に UTF-8 JSON ファイルを 1 つだけ作成する。
+5. ユーザーが複数記事を求めない限り、`data/articles.json` の配列末尾に記事オブジェクトを 1 つだけ追加する。
 6. JSON バリデーションとプロジェクトチェックを実行する。
 
 ## Article Rules
 
-- ID は `coffee_dehydration` のような snake_case ASCII を使用し、ファイル名と完全に一致させる。
+- ID は `coffee_dehydration` のような snake_case ASCII を使用する。
 - 日本語で記述し、1〜3 分で読める分量にする。
 - タイトルは自然な場合に疑問形にする: `「...」は本当か？`
 - `claim` は結論ではなく、議論されている主張のみを記載する。
@@ -25,9 +25,9 @@ description: DemaGase の myth-check 記事 JSON を data/articles/ に追加・
 - 出典を捏造しない。確認していない出典は確認するか、省略する。
 - `created_at` は今日の日付を `YYYY-MM-DD` 形式で設定する。
 
-## JSON Schema
+## Article Object Schema
 
-`data/articles/<id>.json` に配置する。ファイル名のステムは記事の `id` と一致させること。
+`data/articles.json` の配列に追加するオブジェクト:
 
 ```json
 {
@@ -90,7 +90,7 @@ description: DemaGase の myth-check 記事 JSON を data/articles/ に追加・
 編集後に実行する:
 
 ```bash
-node -e "const fs=require('fs'); for (const f of fs.readdirSync('data/articles')) JSON.parse(fs.readFileSync('data/articles/'+f,'utf8'));"
+node -e "JSON.parse(require('fs').readFileSync('data/articles.json','utf8'));"
 pnpm typecheck
 pnpm lint
 ```

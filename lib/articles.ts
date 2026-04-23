@@ -1,23 +1,16 @@
-import fs from "fs"
-import path from "path"
 import { Article } from "types/article"
+import articlesData from "data/articles.json"
 
-const articlesDir = path.join(process.cwd(), "data/articles")
+const articles: Article[] = (articlesData as Article[]).sort(
+  (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+)
 
 export function getAllArticles(): Article[] {
-  const files = fs.readdirSync(articlesDir).filter((f) => f.endsWith(".json"))
-  return files
-    .map((f) => JSON.parse(fs.readFileSync(path.join(articlesDir, f), "utf8")) as Article)
-    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+  return articles
 }
 
 export function getArticleById(id: string): Article | undefined {
-  try {
-    const content = fs.readFileSync(path.join(articlesDir, `${id}.json`), "utf8")
-    return JSON.parse(content) as Article
-  } catch {
-    return undefined
-  }
+  return articles.find((a) => a.id === id)
 }
 
 export function getAllCategories(): string[] {
