@@ -3,9 +3,29 @@ import Script from "next/script"
 import "./reset.css"
 import "./globals.css"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://demagase.reload.co.jp"
+
 export const metadata = {
-  title: "DemaGase｜雑学デマ検証サイト",
+  title: {
+    default: "DemaGase｜雑学デマ検証サイト",
+    template: "%s | DemaGase",
+  },
   description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    siteName: "DemaGase",
+    title: "DemaGase｜雑学デマ検証サイト",
+    description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
+    title: "DemaGase｜雑学デマ検証サイト",
+    description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+  },
 }
 
 const GA_MEASUREMENT_ID = "G-8PTS0V0KJM"

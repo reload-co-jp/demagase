@@ -1,9 +1,12 @@
 import { FC } from "react"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Script from "next/script"
 import { getAllArticles, getArticleById } from "lib/articles"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { ArticleCard } from "components/elements/article-card"
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://demagase.reload.co.jp"
 
 type Props = {
   params: Promise<{ id: string }>
@@ -18,9 +21,24 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params
   const article = getArticleById(id)
   if (!article) return {}
+  const description = article.explanation.slice(0, 120)
   return {
-    title: `${article.title} | DemaGase`,
-    description: article.claim,
+    title: article.title,
+    description,
+    alternates: { canonical: `/articles/${id}/` },
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description,
+      url: `/articles/${id}/`,
+      publishedTime: article.created_at,
+      tags: article.tags,
+    },
+    twitter: {
+      card: "summary",
+      title: article.title,
+      description,
+    },
   }
 }
 
@@ -61,8 +79,20 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
   const allArticles = getAllArticles()
   const related = allArticles.filter((a) => a.category === article.category && a.id !== article.id).slice(0, 3)
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.explanation.slice(0, 120),
+    datePublished: article.created_at,
+    url: `${siteUrl}/articles/${article.id}/`,
+    publisher: { "@type": "Organization", name: "DemaGase", url: siteUrl },
+    keywords: article.tags.join(", "),
+  }
+
   return (
     <article style={{ maxWidth: "760px", margin: "0 auto" }}>
+      <Script id="json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Breadcrumb */}
       <nav style={{ fontSize: "0.8125rem", color: "var(--muted)", marginBottom: "1.5rem" }}>
         <Link href="/">ホーム</Link>
