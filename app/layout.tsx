@@ -3,7 +3,7 @@ import "./reset.css"
 import "./globals.css"
 
 export const metadata = {
-  title: "GaseDema｜雑学デマ検証サイト",
+  title: "DemaGase｜雑学デマ検証サイト",
   description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
 }
 
@@ -38,7 +38,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 textDecoration: "none",
               }}
             >
-              GaseDema
+              DemaGase
               <span style={{ fontSize: "0.6875rem", color: "var(--muted)", marginLeft: "0.375rem", fontWeight: 400 }}>
                 雑学デマ検証
               </span>
@@ -67,7 +67,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <div className="container" style={{ padding: "0" }}>
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
-              &copy; 2026 GaseDema — 情報は正確を期していますが、専門家への相談を推奨します。
+              &copy; 2026 DemaGase — 情報は正確を期していますが、専門家への相談を推奨します。
             </p>
           </div>
         </footer>

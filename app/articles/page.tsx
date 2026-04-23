@@ -3,7 +3,7 @@ import { getAllArticles, getAllCategories } from "lib/articles"
 import { ArticleListClient } from "components/features/article-list-client"
 
 export const metadata = {
-  title: "記事一覧 | GaseDema",
+  title: "記事一覧 | DemaGase",
 }
 
 const ArticlesPage: FC = () => {

@@ -3,7 +3,7 @@ import { VerdictBadge } from "components/elements/verdict-badge"
 import { Verdict } from "types/article"
 
 export const metadata = {
-  title: "このサイトについて | GaseDema",
+  title: "このサイトについて | DemaGase",
 }
 
 const verdicts: { verdict: Verdict; desc: string }[] = [
@@ -19,9 +19,9 @@ const AboutPage: FC = () => (
     <h1 style={{ fontSize: "1.75rem", fontWeight: 800, marginBottom: "2rem" }}>このサイトについて</h1>
 
     <section style={{ marginBottom: "2.5rem" }}>
-      <h2 className="section-title">GaseDema とは</h2>
+      <h2 className="section-title">DemaGase とは</h2>
       <p style={{ lineHeight: 1.9 }}>
-        GaseDema（ガセデマ）は、広く知られている雑学・トリビアの中に含まれる誤情報や誤解を、出典に基づいて検証するサイトです。
+        DemaGase（デマガセ）は、広く知られている雑学・トリビアの中に含まれる誤情報や誤解を、出典に基づいて検証するサイトです。
       </p>
       <p style={{ lineHeight: 1.9, marginTop: "0.75rem" }}>
         「なんとなく知ってる」を疑い、軽く読めるが根拠は重い、そんなコンテンツを目指しています。

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
   const article = getArticleById(id)
   if (!article) return {}
   return {
-    title: `${article.title} | GaseDema`,
+    title: `${article.title} | DemaGase`,
     description: article.claim,
   }
 }
