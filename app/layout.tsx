@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Script from "next/script"
 import "./reset.css"
 import "./globals.css"
 
@@ -7,10 +8,29 @@ export const metadata = {
   description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
 }
 
+const GA_MEASUREMENT_ID = "G-8PTS0V0KJM"
+const isProduction = process.env.NODE_ENV === "production"
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
       <body>
+        {isProduction && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <header
           style={{
             backgroundColor: "var(--surface)",
