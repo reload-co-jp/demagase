@@ -1,8 +1,9 @@
 import { FC } from "react"
+import type { Metadata } from "next"
 import { getAllArticles, getAllCategories } from "lib/articles"
 import { ArticleListClient } from "components/features/article-list-client"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "記事一覧",
   description: "雑学・トリビアのデマ検証記事の一覧。カテゴリやタグで絞り込めます。",
   alternates: { canonical: "/articles/" },
@@ -10,6 +11,11 @@ export const metadata = {
     title: "記事一覧",
     description: "雑学・トリビアのデマ検証記事の一覧。カテゴリやタグで絞り込めます。",
     url: "/articles/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "記事一覧 | DemaGase",
+    description: "雑学・トリビアのデマ検証記事の一覧。カテゴリやタグで絞り込めます。",
   },
 }
 

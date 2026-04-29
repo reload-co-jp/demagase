@@ -1,4 +1,5 @@
 import { FC } from "react"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Script from "next/script"
@@ -6,7 +7,7 @@ import { getAllArticles, getArticleById } from "lib/articles"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { ArticleCard } from "components/elements/article-card"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://demagase.reload.co.jp"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://demagase.reload.co.jp"
 
 type Props = {
   params: Promise<{ id: string }>
@@ -17,7 +18,15 @@ export async function generateStaticParams() {
   return articles.map((a) => ({ id: a.id }))
 }
 
-export async function generateMetadata({ params }: Props) {
+const verdictRatingMap = {
+  false: 1,
+  partial: 2,
+  unconfirmed: 3,
+  unknown: 3,
+  true: 5,
+} as const
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const article = getArticleById(id)
   if (!article) return {}
@@ -25,6 +34,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: article.title,
     description,
+    keywords: [article.category, ...article.tags],
     alternates: { canonical: `/articles/${id}/` },
     openGraph: {
       type: "article",
@@ -32,12 +42,15 @@ export async function generateMetadata({ params }: Props) {
       description,
       url: `/articles/${id}/`,
       publishedTime: article.created_at,
+      section: article.category,
       tags: article.tags,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: article.title }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: article.title,
       description,
+      images: ["/twitter-image"],
     },
   }
 }
@@ -79,7 +92,7 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
   const allArticles = getAllArticles()
   const related = allArticles.filter((a) => a.category === article.category && a.id !== article.id).slice(0, 3)
 
-  const jsonLd = {
+  const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
@@ -90,9 +103,61 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     keywords: article.tags.join(", "),
   }
 
+  const claimReviewJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ClaimReview",
+    url: `${siteUrl}/articles/${article.id}/`,
+    datePublished: article.created_at,
+    claimReviewed: article.claim,
+    author: { "@type": "Organization", name: "DemaGase", url: siteUrl },
+    publisher: { "@type": "Organization", name: "DemaGase", url: siteUrl },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: verdictRatingMap[article.verdict],
+      bestRating: 5,
+      worstRating: 1,
+      alternateName: article.verdict_label,
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "ホーム",
+        item: `${siteUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "記事一覧",
+        item: `${siteUrl}/articles/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: `${siteUrl}/articles/${article.id}/`,
+      },
+    ],
+  }
+
   return (
     <article style={{ maxWidth: "760px", margin: "0 auto" }}>
-      <Script id="json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Script id="article-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <Script
+        id="claimreview-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewJsonLd) }}
+      />
+      <Script
+        id="breadcrumb-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav style={{ fontSize: "0.8125rem", color: "var(--muted)", marginBottom: "1.5rem" }}>
         <Link href="/">ホーム</Link>

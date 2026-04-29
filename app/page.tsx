@@ -1,8 +1,25 @@
 import { FC } from "react"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { getAllArticles, getAllCategories } from "lib/articles"
 import { ArticleCard } from "components/elements/article-card"
 import { TodayArticle } from "components/features/today-article"
+
+export const metadata: Metadata = {
+  title: "DemaGase｜雑学デマ検証サイト",
+  description: "雑学・トリビア・語源の俗説を出典付きで検証。誤用や思い込みを短く読める記事で整理する。",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "DemaGase｜雑学デマ検証サイト",
+    description: "雑学・トリビア・語源の俗説を出典付きで検証。誤用や思い込みを短く読める記事で整理する。",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DemaGase｜雑学デマ検証サイト",
+    description: "雑学・トリビア・語源の俗説を出典付きで検証。誤用や思い込みを短く読める記事で整理する。",
+  },
+}
 
 const VERDICTS = [
   { icon: "❌", label: "誤り", desc: "根拠がなく、誤りと断定できる" },

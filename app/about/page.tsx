@@ -1,9 +1,17 @@
 import { FC } from "react"
+import type { Metadata } from "next"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { Verdict } from "types/article"
 
-export const metadata = {
-  title: "このサイトについて | DemaGase",
+export const metadata: Metadata = {
+  title: "このサイトについて",
+  description: "DemaGase の運営方針、判定ラベル、記事の読み方をまとめたページ。",
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "このサイトについて | DemaGase",
+    description: "DemaGase の運営方針、判定ラベル、記事の読み方をまとめたページ。",
+    url: "/about/",
+  },
 }
 
 const verdicts: { verdict: Verdict; desc: string }[] = [

@@ -1,18 +1,35 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
 import "./reset.css"
 import "./globals.css"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://demagase.reload.co.jp"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://demagase.reload.co.jp"
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: "DemaGase",
   title: {
     default: "DemaGase｜雑学デマ検証サイト",
     template: "%s | DemaGase",
   },
   description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
-  metadataBase: new URL(siteUrl),
+  keywords: ["雑学", "トリビア", "デマ", "ファクトチェック", "語源", "俗説", "誤用", "検証"],
   alternates: { canonical: "/" },
+  referrer: "origin-when-cross-origin",
+  creator: "DemaGase",
+  publisher: "DemaGase",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
@@ -20,11 +37,13 @@ export const metadata = {
     title: "DemaGase｜雑学デマ検証サイト",
     description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
     url: "/",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "DemaGase" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "DemaGase｜雑学デマ検証サイト",
     description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+    images: ["/twitter-image"],
   },
 }
 
@@ -32,9 +51,25 @@ const GA_MEASUREMENT_ID = "G-8PTS0V0KJM"
 const isProduction = process.env.NODE_ENV === "production"
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  const siteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "DemaGase",
+    alternateName: "デマガセ",
+    url: siteUrl,
+    description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+    inLanguage: "ja-JP",
+    publisher: {
+      "@type": "Organization",
+      name: "DemaGase",
+      url: siteUrl,
+    },
+  }
+
   return (
     <html lang="ja">
       <body>
+        <Script id="website-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
         {isProduction && (
           <>
             <Script
