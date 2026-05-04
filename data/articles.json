@@ -1092,5 +1092,101 @@
     ],
     "tags": ["語源", "食べ物", "英語", "俗説"],
     "created_at": "2026-04-30"
+  },
+  {
+    "id": "ryo_bushu_komehen",
+    "title": "「料」の部首は米偏か？",
+    "category": "言葉",
+    "claim": "漢字『料』の部首は米偏である",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "左側に『米』が見えるため、『料』の部首は米偏だと思われやすい。",
+    "explanation": "この見方は自然だが、辞典では『料』の部首は『斗（とます）』とされる。『料』は『米』と『斗』から成る字で、成り立ちの説明でも『米をますではかる』意が示されるが、部首として採られているのは左の『米』ではなく右の『斗』である。",
+    "truth": "『料』の部首は『斗』である。漢字の部首は見た目の印象だけで決まるとは限らず、辞書上の分類では右側の構成要素が部首になる字も少なくない。",
+    "why_spread": "学校教育では偏や旁の形で覚えることが多く、左側に目立つ部品があるとそのまま部首だと考えやすい。『料』も『米』が目につきやすいため、米偏と誤認されやすい。",
+    "how_to_identify": "部首を判断するときは、形の大きさや位置だけで決めず、漢字辞典の部首欄を見るのが確実。特に左右に意味のありそうな要素がある字は、辞書分類が直感とずれることがある。",
+    "sources": [
+      {
+        "title": "料 | 漢字一字 | 漢字ペディア",
+        "url": "https://www.kanjipedia.jp/kanji/0007161500",
+        "author": "日本漢字能力検定協会 漢字ペディア"
+      },
+      {
+        "title": "「料」とは？ 部首・画数・読み方・意味",
+        "url": "https://dictionary.goo.ne.jp/word/kanji/%E6%96%99/",
+        "author": "goo漢字辞典"
+      },
+      {
+        "title": "料(リョウ)とは？ 意味や使い方",
+        "url": "https://kotobank.jp/word/%E6%96%99-659019",
+        "author": "コトバンク"
+      }
+    ],
+    "tags": ["言葉", "漢字", "部首", "国語"],
+    "created_at": "2026-04-30"
+  },
+  {
+    "id": "hitomebore_divorce_rate",
+    "title": "一目惚れした結婚は離婚率が低いか？",
+    "category": "生活",
+    "claim": "一目惚れから始まった結婚は、一般に離婚率が低い",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "『最初にビビッと来た相手こそ運命の人』『一目惚れの結婚は長続きする』という話は、恋愛相談や雑学でよく語られる。",
+    "explanation": "現時点で、一目惚れで始まった結婚の離婚率が一般に低いと示す定評ある研究は確認しにくい。関連研究では、一目惚れはしばしば『強い初期魅力』として説明され、長期的な関係の安定そのものを保証するものとはされていない。また、関係の始まり方を比べた研究でも、一目惚れしたカップルが特に高い関係品質を示したとは言えず、『一目惚れだから離婚しにくい』とまでは導けない。",
+    "truth": "より正確には、一目惚れは『強い第一印象や身体的魅力』を伴うことはあっても、それだけで結婚の安定性や離婚率の低さを予測できるとは言いがたい。結婚の継続には、価値観の相性、コミュニケーション、生活上の協力、信頼など、時間をかけて育つ要因の方が重要と考えられる。",
+    "why_spread": "恋愛は『劇的な出会いほど本物』という物語で語られやすい。一目惚れから結婚した成功例は印象に残る一方、うまくいかなかった例は語られにくいため、『一目惚れ婚は長続きする』というイメージが強まりやすい。",
+    "how_to_identify": "恋愛や結婚に関する一般論は、印象的な体験談だけで判断しないこと。離婚率や満足度のような主張は、サンプル数のある研究で『本当に比較されているか』を確認すると見分けやすい。",
+    "sources": [
+      {
+        "title": "What kind of love is love at first sight? An empirical investigation",
+        "url": "https://research.rug.nl/en/publications/what-kind-of-love-is-love-at-first-sight-an-empirical-investigati",
+        "author": "University of Groningen research portal"
+      },
+      {
+        "title": "Love at first sight or friends first? Ties among partner personality trait similarity, relationship onset, relationship quality, and love",
+        "url": "https://research.rug.nl/en/publications/love-at-first-sight-or-friends-first-ties-among-partner-personali/",
+        "author": "University of Groningen research portal"
+      },
+      {
+        "title": "Is Love at First Sight Real?",
+        "url": "https://www.psychologytoday.com/us/blog/meet-catch-and-keep/201801/is-love-first-sight-real",
+        "author": "Psychology Today"
+      }
+    ],
+    "tags": ["生活", "恋愛", "結婚", "俗説"],
+    "created_at": "2026-05-04"
+  },
+  {
+    "id": "debukin",
+    "title": "「デブ菌」は実在するのか？",
+    "category": "科学・医学",
+    "claim": "太るかどうかは『デブ菌』と呼ばれる特定の菌で決まる",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "腸内に『デブ菌』が増えると太りやすくなり、『ヤセ菌』が多いとやせやすい、という説明はテレビや健康記事でよく見かける。",
+    "explanation": "この話には事実の核がある。腸内細菌叢と肥満の関連は研究されており、肥満の人で腸内細菌の構成や多様性が異なることは報告されている。ただし、現在の医学では『この一種がいるから太る』と単純に言える段階ではない。Mayo Clinic も、人の肥満と腸内細菌の関係は『そんなに単純ではない』と説明しており、特定の比率や単一菌だけで説明する見方には慎重である。",
+    "truth": "より正確には、肥満には食事、運動、遺伝、睡眠、薬剤、代謝、そして腸内細菌叢など、複数の要因が関わる。腸内細菌はその一部として影響しうるが、『デブ菌』という一語で片づけられるほど単純ではなく、現時点では研究途上の分野である。",
+    "why_spread": "複雑な肥満の仕組みを『菌のせい』と説明するとわかりやすく、印象に残る。また『ヤセ菌』『デブ菌』のような対比は健康情報として拡散しやすく、細かな研究上の限界が省かれやすい。",
+    "how_to_identify": "医療系の雑学で『特定の菌ひとつで体質が決まる』と語られたら注意。関連があるのか、原因と断定できるのか、人で再現性があるのかを分けて確認すると見分けやすい。",
+    "sources": [
+      {
+        "title": "Role of gut microbiota in obesity and the future of microbiota therapeutics for obesity",
+        "url": "https://www.mayoclinic.org/medical-professionals/digestive-diseases/news/role-of-gut-microbiota-in-obesity-and-the-future-of-microbiota-therapeutics-for-obesity/mqc-20527745",
+        "author": "Mayo Clinic"
+      },
+      {
+        "title": "The gut microbiota and obesity",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK565809/",
+        "author": "NCBI Bookshelf / IARC"
+      },
+      {
+        "title": "Roles of the gut microbiome in weight management",
+        "url": "https://www.nature.com/articles/s41579-023-00888-0",
+        "author": "Nature Reviews Microbiology"
+      }
+    ],
+    "tags": ["科学・医学", "腸内細菌", "肥満", "俗説"],
+    "created_at": "2026-05-04"
   }
 ]
