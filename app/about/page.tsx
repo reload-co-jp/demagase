@@ -1,5 +1,6 @@
 import { FC } from "react"
 import type { Metadata } from "next"
+import Link from "next/link"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { Verdict } from "types/article"
 
@@ -20,6 +21,14 @@ const verdicts: { verdict: Verdict; desc: string }[] = [
   { verdict: "unconfirmed", desc: "有力な説だが、確定的な証拠が存在しない" },
   { verdict: "true", desc: "信頼できる根拠に基づいて正しいと言える情報" },
   { verdict: "unknown", desc: "情報が不足しており、現時点では判断できない" },
+]
+
+const companyInfo = [
+  { label: "会社名", value: "株式会社リロード / Reload, Inc." },
+  { label: "代表者", value: "山本翔平" },
+  { label: "設立", value: "2014年8月22日" },
+  { label: "事業内容", value: "インターネット関連事業" },
+  { label: "所在地", value: "〒101-0046 東京都千代田区神田佐久間町3-37-1 山茂登ビル 3F" },
 ]
 
 const AboutPage: FC = () => (
@@ -82,7 +91,7 @@ const AboutPage: FC = () => (
       </ol>
     </section>
 
-    <section>
+    <section style={{ marginBottom: "2.5rem" }}>
       <h2 className="section-title">運営方針</h2>
       <ul
         style={{
@@ -99,6 +108,35 @@ const AboutPage: FC = () => (
         <li>出典を明記し、読者が自分で確認できる状態にする</li>
         <li>読者の判断力向上を目的とする</li>
       </ul>
+    </section>
+
+    <section>
+      <h2 className="section-title">運営会社</h2>
+      <div
+        style={{
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
+          borderRadius: "8px",
+          padding: "1rem",
+        }}
+      >
+        <dl style={{ display: "grid", gridTemplateColumns: "120px 1fr", rowGap: "0.75rem", columnGap: "1rem", margin: 0 }}>
+          {companyInfo.map((item) => (
+            <div key={item.label} style={{ display: "contents" }}>
+              <dt style={{ color: "var(--muted)", fontSize: "0.875rem" }}>{item.label}</dt>
+              <dd style={{ margin: 0, color: "var(--text)", fontSize: "0.9375rem", lineHeight: 1.7 }}>{item.value}</dd>
+            </div>
+          ))}
+          <div style={{ display: "contents" }}>
+            <dt style={{ color: "var(--muted)", fontSize: "0.875rem" }}>公式サイト</dt>
+            <dd style={{ margin: 0, fontSize: "0.9375rem" }}>
+              <Link href="https://reload.co.jp/" target="_blank" rel="noopener noreferrer">
+                https://reload.co.jp/
+              </Link>
+            </dd>
+          </div>
+        </dl>
+      </div>
     </section>
   </div>
 )

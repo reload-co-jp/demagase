@@ -140,8 +140,21 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           }}
         >
           <div className="container" style={{ padding: "0" }}>
-            <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                color: "var(--muted)",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.375rem",
+                flexWrap: "wrap",
+              }}
+            >
               &copy; 2026 DemaGase - 情報は正確を期していますが、専門家への相談を推奨します。
+              <span aria-hidden="true">/</span>
+              <Link href="https://reload.co.jp/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)" }}>
+                運営会社: 株式会社リロード
+              </Link>
             </p>
           </div>
         </footer>
