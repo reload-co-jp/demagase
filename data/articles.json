@@ -1220,5 +1220,412 @@
     ],
     "tags": ["歴史", "人物", "遺伝", "俗説"],
     "created_at": "2026-05-12"
+  },
+  {
+    "id": "yamataikoku_kyushu_theory",
+    "title": "「邪馬台国は九州にあった」は本当か？",
+    "category": "歴史",
+    "claim": "邪馬台国は九州にあった",
+    "verdict": "unconfirmed",
+    "verdict_label": "有力説だが確定ではない",
+    "common_belief": "邪馬台国は『魏志倭人伝』の行程記事を素直に読むと九州に収まるため、卑弥呼の都は北部九州にあった、と説明されることがある。吉野ヶ里遺跡のような大規模な弥生集落のイメージと結びつけて語られることも多い。",
+    "explanation": "九州説は有力な説の一つだが、所在地が九州で確定したわけではない。『魏志倭人伝』の方角・距離・日数の読み方、後世史料との関係、弥生後期から古墳時代初めの考古資料をどう評価するかで結論が分かれる。コトバンク収録の日本国語大辞典も、所在地については多数説があり北九州説と畿内説に大別されると説明している。一方、奈良県の纒向遺跡は邪馬台国時代を考える重要資料とされ、畿内説の大きな根拠になっている。",
+    "truth": "より正確には、『邪馬台国九州説は有力な候補説の一つだが、畿内説などと競合しており、学術的には未決着』である。九州には吉野ヶ里遺跡など邪馬台国の時代を思わせる大規模な弥生遺跡があるが、それだけで邪馬台国そのものと断定できない。畿内側にも纒向遺跡など同時期の政治的中心地を示す資料があり、文献解釈と考古資料の対応づけが争点として残っている。",
+    "why_spread": "学校教材やテレビでは複雑な論争を短く説明する必要があり、『九州説対畿内説』という対立図式がわかりやすい。さらに吉野ヶ里遺跡の発見が強い印象を残したため、『弥生の大集落＝邪馬台国』という連想が広まりやすかった。",
+    "how_to_identify": "古代史の所在地論争では、候補地を示す根拠が文献の行程解釈なのか、遺跡の年代・規模なのか、地名の類似なのかを分けて確認する。『有力』『有名』『ロマンがある』と『確定』は別物として読むと見分けやすい。",
+    "sources": [
+      {
+        "title": "邪馬臺国",
+        "url": "https://kotobank.jp/word/%E9%82%AA%E9%A6%AC%E8%87%BA%E5%9B%BD-2089403",
+        "author": "コトバンク / 精選版 日本国語大辞典"
+      },
+      {
+        "title": "吉野ヶ里遺跡とは",
+        "url": "https://www.yoshinogari.jp/introduction/remains/",
+        "author": "吉野ヶ里歴史公園"
+      },
+      {
+        "title": "纒向遺跡",
+        "url": "https://www.kashikoken.jp/museum/yamatonoiseki/kofun/makimuku.html",
+        "author": "奈良県立橿原考古学研究所附属博物館"
+      },
+      {
+        "title": "データサイエンスが解く邪馬台国 : 北部九州説はゆるがない",
+        "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031710535",
+        "author": "国立国会図書館サーチ"
+      }
+    ],
+    "tags": ["歴史", "邪馬台国", "卑弥呼", "古代史"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "heart_rate_attraction",
+    "title": "「心拍数が上がると恋愛感情が生まれやすい」は本当か？",
+    "category": "科学・医学",
+    "claim": "心拍数が上がると恋愛感情が生まれやすい",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "吊り橋、遊園地、ホラー映画、運動後などで心拍数が上がると、そのドキドキを相手への恋愛感情だと勘違いしやすい。いわゆる『吊り橋効果』として、恋愛テクニックのように紹介されることが多い。",
+    "explanation": "この話には心理学研究に基づく事実の核がある。Dutton と Aron の有名な吊り橋研究では、不安を誘う橋を渡った男性の方が、女性調査者への接触行動や性的な想像を示しやすかった。White らの研究でも、運動などで生じた覚醒が、魅力的な相手への好意を強める結果が報告されている。ただし、これは『心拍数が上がれば誰でも恋に落ちる』という意味ではない。相手の魅力、状況の解釈、覚醒の原因が自覚されているかなどに左右される。",
+    "truth": "より正確には、恐怖や運動で生じた生理的覚醒が、状況によっては相手への魅力として解釈され、好意を強めることがある。これは『覚醒の誤帰属』と呼ばれる。ただし恋愛感情は心拍数だけで作られるものではなく、認知的評価、相手との相性、既存の好意、文脈が関わる。心拍上昇は恋愛感情の原因というより、特定条件で感情解釈を揺らす要因の一つである。",
+    "why_spread": "『ドキドキ＝恋』という説明が直感的で、吊り橋効果という名前も覚えやすい。恋愛テクニックとして使いやすく、複雑な実験条件や再現性の限界が省かれたまま広まりやすい。",
+    "how_to_identify": "心理学の俗説では、実験で確認された狭い条件と日常場面への応用を分けて読む。『効果があることがある』が『誰にでも使える方法』へ変換されていないか、元研究の対象者、状況、測定された行動を確認すると見分けやすい。",
+    "sources": [
+      {
+        "title": "Some evidence for heightened sexual attraction under conditions of high anxiety",
+        "url": "https://cir.nii.ac.jp/crid/1363670319507870464",
+        "author": "Donald G. Dutton, Arthur P. Aron / CiNii Research"
+      },
+      {
+        "title": "Passionate love and the misattribution of arousal",
+        "url": "https://www.deepdyve.com/lp/american-psychological-association/passionate-love-and-the-misattribution-of-arousal-OlhGKyJvyV",
+        "author": "Gregory L. White, Sanford Fishbein, Jeffrey Rutstein"
+      },
+      {
+        "title": "Cognitive, social, and physiological determinants of emotional state",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14497895/",
+        "author": "Stanley Schachter, Jerome E. Singer / PubMed"
+      },
+      {
+        "title": "Misattribution of arousal and attraction: Effects of salience of explanations for arousal",
+        "url": "https://www.sciencedirect.com/science/article/pii/002210318490012X",
+        "author": "Gregory L. White, Thomas D. Kight"
+      }
+    ],
+    "tags": ["科学・医学", "心理", "恋愛", "吊り橋効果"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "love_boosts_immunity",
+    "title": "「恋愛は免疫力を上げる」は本当か？",
+    "category": "科学・医学",
+    "claim": "恋愛は免疫力を上げる",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "好きな人がいると元気になる、恋をすると風邪をひきにくくなる、幸せな恋愛は免疫力を上げる、といった説明は健康雑学や恋愛記事でよく語られる。",
+    "explanation": "恋愛や親密な人間関係が身体の免疫関連プロセスと関係することは研究されている。たとえば、新しい恋愛関係にある若い女性を追跡した研究では、恋に落ちた時期に一部の自然免疫・抗ウイルス応答に関わる遺伝子発現の変化が見られた。ただし、これは『免疫力が全体的に上がる』という単純な話ではない。免疫系には炎症、抗ウイルス応答、抗体反応など複数の側面があり、ある反応が高まることが常に健康に良いとは限らない。",
+    "truth": "より正確には、恋愛を含む良好な社会的つながりは、ストレスや孤独感を減らし、炎症や抗ウイルス応答などの免疫関連指標に影響しうる。ただし効果は関係の質、ストレス、睡眠、生活習慣、感染曝露などに左右される。恋愛そのものを万能の免疫増強法のように扱うのは誇張で、安心できる親密な関係が健康に関わる可能性がある、と見るのが妥当である。",
+    "why_spread": "『恋をすると元気になる』という体験談は共感されやすく、免疫力という言葉も健康効果を一言で説明しやすい。心理状態と身体の関係を示す研究が、メディアでは『恋愛で免疫アップ』という短い表現に圧縮されやすい。",
+    "how_to_identify": "健康情報で『免疫力が上がる』と書かれていたら、何の指標を測ったのかを確認する。抗体価、炎症マーカー、遺伝子発現、感染率は別物。さらに、恋愛の有無だけでなく、関係の質やストレスの変化を分けて見ると誇張を見抜きやすい。",
+    "sources": [
+      {
+        "title": "Falling in love is associated with immune system gene regulation",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0306453018306516",
+        "author": "Damian R. Murray et al."
+      },
+      {
+        "title": "Two Distinct Immune Pathways Linking Social Relationships With Health: Inflammatory and Antiviral Processes",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7025456/",
+        "author": "Carrianne J. Leschak, Naomi I. Eisenberger"
+      },
+      {
+        "title": "Close Relationships, Inflammation, and Health",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2891342/",
+        "author": "Janice K. Kiecolt-Glaser et al."
+      },
+      {
+        "title": "Loneliness promotes inflammation during acute stress",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23630220/",
+        "author": "Lisa M. Jaremka et al."
+      }
+    ],
+    "tags": ["科学・医学", "恋愛", "免疫", "健康"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "sneeze_speed_160kmh",
+    "title": "「くしゃみの速度は時速160km」は本当か？",
+    "category": "科学・医学",
+    "claim": "くしゃみの速度は時速160kmである",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "くしゃみは非常に勢いがあるため、飛び出す空気や飛沫は時速160km、つまり時速100マイルほどで飛ぶ、と雑学や健康記事で紹介されることがある。",
+    "explanation": "くしゃみが速く、飛沫を遠くへ運ぶことは事実。しかし『くしゃみの速度は時速160km』と一律に言うのは正確ではない。高速度カメラや粒子画像流速測定を使った研究では、くしゃみの気流や飛沫先端の速度は条件によって大きく変わり、測定値は時速160kmよりかなり低い例が多い。たとえば 2021 年の粒子画像流速測定研究では、くしゃみ気流の最大瞬間速度は 15.90 m/s、時速にすると約57kmだった。別の高速ビデオ解析研究でも、くしゃみミスト先端の速度式は初期値 1500 cm/s、つまり約54km/hとして扱われている。",
+    "truth": "より正確には、くしゃみの速度は何を測るかで変わる。口元の気流、個々の飛沫、ミストの先端、湿った乱流雲では値が同じではない。時速160kmという数字は古い推定や『最大で100マイル毎時』という広報的表現として広まった可能性が高く、直接測定された代表的な値として使うには強すぎる。感染対策で重要なのは最高速度より、飛沫とエアロゾルが乱流雲に乗って広がり、空間に残りうる点である。",
+    "why_spread": "時速160kmという数字はインパクトが強く、くしゃみの危険性を伝える雑学として覚えやすい。『時速100マイル』をメートル法に直した数字でもあり、測定対象や条件の違いが省かれたまま定番化しやすい。",
+    "how_to_identify": "速度の雑学では、単位だけでなく『何の速度か』を見る。空気の噴流、飛沫、雲の先端、到達距離は別の量。さらに、直接測定なのか古い推定なのか、平均値なのか最大値なのかを確認すると誇張を見分けやすい。",
+    "sources": [
+      {
+        "title": "Experimental measurements of airflow features and velocity distribution exhaled from sneeze and speech using particle image velocimetry",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0360132321006922",
+        "author": "Building and Environment"
+      },
+      {
+        "title": "A New Methodology for Studying Dynamics of Aerosol Particles in Sneeze and Cough Using a Digital High-Vision, High-Speed Video System and Vector Analyses",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3842286/",
+        "author": "PLOS ONE / PMC"
+      },
+      {
+        "title": "The Anatomy of a Sneeze",
+        "url": "https://sites.mit.edu/lbourouiba/image_gallery/anatomy-sneeze/",
+        "author": "Bourouiba Group, MIT"
+      },
+      {
+        "title": "How Fast Is a Sneeze Versus a Cough? Cover Your Mouth Either Way!",
+        "url": "https://www.lung.org/blog/sneeze-versus-cough",
+        "author": "American Lung Association"
+      }
+    ],
+    "tags": ["科学・医学", "くしゃみ", "飛沫", "感染対策"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "hiyakashi_tofu_water_origin",
+    "title": "「冷やかし」は豆腐屋で水だけ買う客が語源か？",
+    "category": "語源",
+    "claim": "「冷やかし」の語源は、江戸時代の豆腐屋で水だけ買って帰る人をからかったことに由来する",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "豆腐は水に入れて売られるため、江戸時代の豆腐屋で豆腐を買わず水だけ求める客がいた。その人を店側や周囲がからかったことから、買う気がない人や人をからかうことを「冷やかし」と呼ぶようになった、という説明が語られることがある。",
+    "explanation": "この豆腐屋説は、主要な辞書や語源説明では確認しにくい。コトバンク収録の精選版日本国語大辞典では、「冷やかし」は動詞「冷やかす」の連用形の名詞化で、遊郭で登楼せず張り見世の遊女を見て歩くこと、買う意思なく値踏みすることなどを意味すると説明される。語源説明でよく挙げられるのは、浅草山谷の紙漉き職人が紙料を水で冷やしている待ち時間に新吉原へ行き、遊女を見て回ったという説である。",
+    "truth": "より妥当なのは、「水で冷やす」という本来の意味から、紙漉き職人の待ち時間と吉原見物の逸話を経て、買う気や登楼する気がないまま見て回る意味に転じた、という説明である。ただしこの由来も俗説的要素を含むため、厳密には「豆腐屋の水だけ買い」が語源と確認できる資料は乏しく、辞書上は「冷やかす」から派生した語として押さえるのが安全である。",
+    "why_spread": "豆腐屋、水、冷やす、買わずに帰るという要素が「冷やかし」の字面とよく合い、短い小話として覚えやすい。実際の語史では遊郭・見物・買う気のなさが絡むため、より身近な商店の話に置き換わって広まった可能性がある。",
+    "how_to_identify": "語源話は、字面に合う小話だけで判断しない。辞書の初出例、古い用例、語義の変化を確認し、後から作られた説明と文献上確認できる説明を分けて読むと見分けやすい。",
+    "sources": [
+      {
+        "title": "冷やかし",
+        "url": "https://kotobank.jp/word/%E5%86%B7%E3%82%84%E3%81%8B%E3%81%97-3138877",
+        "author": "コトバンク / 精選版 日本国語大辞典"
+      },
+      {
+        "title": "冷やかす",
+        "url": "https://kotobank.jp/word/%E5%86%B7%E3%82%84%E3%81%8B%E3%81%99-3138878",
+        "author": "コトバンク / 精選版 日本国語大辞典"
+      },
+      {
+        "title": "冷やかしとは 由来・語源",
+        "url": "https://yain.jp/i/%E5%86%B7%E3%82%84%E3%81%8B%E3%81%97",
+        "author": "由来・語源辞典"
+      },
+      {
+        "title": "冷やかすとは 由来・語源",
+        "url": "https://yain.jp/i/%E5%86%B7%E3%82%84%E3%81%8B%E3%81%99",
+        "author": "由来・語源辞典"
+      }
+    ],
+    "tags": ["語源", "言葉", "江戸", "俗説"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "first_japanese_vending_machine_tobacco",
+    "title": "「日本初の自動販売機はタバコ」は本当か？",
+    "category": "歴史",
+    "claim": "日本で初めての自動販売機はタバコの自動販売機だった",
+    "verdict": "true",
+    "verdict_label": "正しい",
+    "common_belief": "日本は飲料自販機の印象が強いため、最初の自動販売機も飲み物だったと思われがちだが、実は明治時代のタバコ自動販売機が最初だった、という雑学として語られる。",
+    "explanation": "この主張はおおむね正しい。日本大百科全書やコトバンク収録の世界大百科事典は、日本では1888年（明治21年）に俵谷高七が発明したたばこ自動販売機が最初だと説明している。この機械は東京で開かれた内国勧業博覧会に出品され、特許も得たとされる。一方で、現存する日本最古の自動販売機としてよく紹介されるのは、同じ俵谷高七が1904年（明治37年）に考案した「自働郵便切手葉書売下機」である。",
+    "truth": "より正確には、「日本初の自動販売機として記録されるのは1888年のタバコ自動販売機。ただし現存する日本最古の自動販売機は1904年の切手・葉書販売機」である。飲料自販機が本格的に普及するのは戦後、とくに1960年代以降で、現在の自販機大国のイメージとは時代がかなり離れている。",
+    "why_spread": "タバコ自販機は昭和以降にも身近で、初期の自販機史と結びつけて覚えやすい。一方で、博物館で見られる現存最古の機械が切手・葉書販売機であるため、「初めて」と「現存最古」が混ざって混乱しやすい。",
+    "how_to_identify": "技術史の『初』を読むときは、考案、特許、出品、実用化、現存最古を分けて確認する。どれを指しているかで答えが変わるため、年号と資料の言い方を見ると誤解を避けやすい。",
+    "sources": [
+      {
+        "title": "自動販売機",
+        "url": "https://kotobank.jp/word/%E8%87%AA%E5%8B%95%E8%B2%A9%E5%A3%B2%E6%A9%9F-170306",
+        "author": "コトバンク / 日本大百科全書・世界大百科事典"
+      },
+      {
+        "title": "タバコ自動販売機",
+        "url": "https://kotobank.jp/word/%E3%81%9F%E3%81%B0%E3%81%93%E8%87%AA%E5%8B%95%E8%B2%A9%E5%A3%B2%E6%A9%9F-1362480",
+        "author": "コトバンク / 世界大百科事典"
+      },
+      {
+        "title": "自働郵便切手葉書売下機",
+        "url": "https://www.postalmuseum.jp/column/collection/post.html",
+        "author": "郵政博物館"
+      },
+      {
+        "title": "自動販売機の歴史",
+        "url": "https://www.j-sda.or.jp/learning/history/vending-machine-history/index.php",
+        "author": "全国清涼飲料連合会"
+      }
+    ],
+    "tags": ["歴史", "自動販売機", "タバコ", "明治"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "personality_80_percent_gut_microbiome",
+    "title": "「性格の8割は腸内環境で決まる」は本当か？",
+    "category": "科学・医学",
+    "claim": "性格の8割は腸内環境で決まる",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "腸内細菌は脳やメンタルに影響するため、明るい性格、社交性、不安になりやすさなども腸内環境でほとんど決まる。『性格の8割は腸で決まる』という形で、健康記事や腸活コンテンツで語られることがある。",
+    "explanation": "腸内細菌と脳・行動の関係は実際に研究されている。腸内細菌叢と幼児の気質、成人の性格特性、ストレスや不安との関連を報告した研究もある。ただし、これらは主に関連を示す研究であり、『性格の8割を腸内環境が決める』という割合を示すものではない。性格は遺伝、発達環境、家庭、文化、経験、健康状態など複数の要因が関わる。ビッグファイブ性格特性については双生児研究で遺伝要因が40〜60%程度関わるとされ、腸内環境だけで8割とする説明とは合わない。",
+    "truth": "より正確には、腸内環境は気分、ストレス反応、行動傾向に影響しうる要因の一つである。腸内細菌は免疫、内分泌、迷走神経、代謝産物などを通じて脳と相互作用するが、人間の性格全体を単独で決めるものではない。『腸は性格に関係する可能性がある』と『性格の8割が腸で決まる』の間には大きな飛躍がある。",
+    "why_spread": "腸活は食事で変えられるため、『性格も変えられる』という希望と結びつきやすい。また、腸脳相関という本物の研究分野があるため、数字を足すと科学的に見えやすい。8割という大きな数字は印象に残るが、出典が曖昧なまま拡散しやすい。",
+    "how_to_identify": "健康や心理の主張で『○割決まる』と出たら、何を分母にした割合か確認する。相関研究なのか、因果を示す介入研究なのか、人間の研究なのか動物実験なのかも分けて読む。数字の根拠が示されない場合は、強い断定として扱わない方がよい。",
+    "sources": [
+      {
+        "title": "Gut microbiome composition and diversity are related to human personality traits",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34435164/",
+        "author": "Katerina V-A Johnson / PubMed"
+      },
+      {
+        "title": "Gut microbiome composition is associated with temperament during early childhood",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4342262/",
+        "author": "Lisa M. Christian et al."
+      },
+      {
+        "title": "The gut microbiota–brain axis in behaviour and brain disorders",
+        "url": "https://www.nature.com/articles/s41579-020-00460-0",
+        "author": "Nature Reviews Microbiology"
+      },
+      {
+        "title": "Heritability estimates of the Big Five personality traits based on common genetic variants",
+        "url": "https://www.nature.com/articles/tp201596",
+        "author": "Translational Psychiatry"
+      }
+    ],
+    "tags": ["科学・医学", "腸内細菌", "性格", "腸脳相関"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "space_smells_like_burnt_metal",
+    "title": "「宇宙は金属が焼けたような匂いがする」は本当か？",
+    "category": "科学・医学",
+    "claim": "宇宙には金属が焼けたような匂いがする",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "宇宙飛行士は船外活動から戻ると、宇宙は焼けた金属、溶接、火薬、焦げた肉のような匂いがすると語る。そこから、宇宙空間そのものに独特の匂いがある、という雑学として紹介される。",
+    "explanation": "宇宙飛行士が船外活動後に独特の匂いを感じたという証言は複数ある。NASA Ames の記事でも、船外活動から戻ってヘルメットを外すと、スーツに付着した分子の匂いを感じると説明され、金属的な匂いや火薬・オゾンに似た匂いの証言が紹介されている。ただし、人間は真空の宇宙空間を直接嗅ぐことはできない。匂いを感じるのは、スーツや工具、エアロック内に持ち込まれた物質や、再加圧時の化学反応による可能性がある。",
+    "truth": "より正確には、「宇宙空間を直接嗅ぐと焼けた金属の匂いがする」のではなく、「船外活動後の装備やエアロックで、宇宙飛行士が焼けた金属、溶接、火薬、オゾンのような匂いを感じることがある」である。原因は完全には一つに確定していないが、原子状酸素、オゾン、船外で付着した微粒子、材料の反応などが候補として挙げられる。",
+    "why_spread": "『宇宙の匂い』という表現は強く印象に残る。宇宙飛行士の実体験に基づく話なので説得力もあるが、「スーツに付いた匂い」「エアロックで感じる匂い」という条件が省かれ、「宇宙そのものを嗅げる」ように単純化されやすい。",
+    "how_to_identify": "宇宙の雑学では、観測された現象と表現上の比喩を分ける。真空中で人間が直接体験できるか、装備を介した間接的な経験か、原因が実証済みか仮説かを確認すると誇張を見分けやすい。",
+    "sources": [
+      {
+        "title": "Interesting Fact of the Month 2021: What does space smell like?",
+        "url": "https://www.nasa.gov/space-science-and-astrobiology-at-ames/interesting-fact-of-the-month-current/interesting-fact-of-the-month-2021/",
+        "author": "NASA Ames"
+      },
+      {
+        "title": "Odor Evaluation",
+        "url": "https://www.nasa.gov/centers-and-facilities/white-sands/odor-evaluation/",
+        "author": "NASA White Sands Test Facility"
+      },
+      {
+        "title": "What does space smell like?",
+        "url": "https://www.livescience.com/space/what-does-space-smell-like",
+        "author": "Live Science"
+      },
+      {
+        "title": "What does space smell like?",
+        "url": "https://www.space.com/what-does-space-smell-like",
+        "author": "Space.com"
+      }
+    ],
+    "tags": ["科学・医学", "宇宙", "匂い", "NASA"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "blue_light_improves_concentration",
+    "title": "「青色の照明は集中力を高める」は本当か？",
+    "category": "科学・医学",
+    "claim": "青色の照明は集中力を高める効果がある",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "青色の光は脳を覚醒させるため、勉強部屋や職場の照明を青くすると集中力が上がる、と説明されることがある。駅や学校で青色照明が使われる例と結びつけて語られることも多い。",
+    "explanation": "青色成分の多い光が覚醒度や注意課題の成績に影響することは研究されている。オフィス労働者を対象にした研究では、青色成分を多く含む白色光で主観的な集中・覚醒・作業成績が改善したと報告された。夜勤労働者や模擬夜勤の研究でも、青色成分を強めた白色光が眠気を下げ、注意や反応時間など一部の認知課題を改善する結果がある。ただし、これは『部屋を青くすれば誰でも集中できる』という意味ではない。効果は照度、色温度、浴びる時間帯、作業内容、睡眠状態、個人差に左右される。",
+    "truth": "より正確には、青色成分を含む高色温度の白色光は、特に眠気が出やすい状況で覚醒度や注意維持を助ける可能性がある。一方、夜遅い時間の強い青色光はメラトニン分泌や睡眠に影響し、翌日の集中力を下げる場合もある。集中力を高めたいなら、単に青くするより、十分な明るさ、まぶしさの少なさ、時間帯に合う色温度、睡眠を妨げない使い方を考える必要がある。",
+    "why_spread": "『青＝冷静・集中』という色のイメージと、青色光が体内時計や覚醒に関わるという科学的事実が結びついた。さらに『青色照明で犯罪や自殺を減らす』といった話題が広まり、照明色だけで行動や能力を変えられるように単純化されやすい。",
+    "how_to_identify": "照明効果の主張では、光の色だけでなく、照度、色温度、波長、曝露時間、時間帯を確認する。主観的な集中感なのか、反応時間や正答率などの客観指標なのかも分けて読むと、誇張を見分けやすい。",
+    "sources": [
+      {
+        "title": "Blue-enriched white light in the workplace improves self-reported alertness, performance and sleep quality",
+        "url": "https://research.tue.nl/en/publications/blue-enriched-white-light-in-the-workplace-improves-self-reported/",
+        "author": "Antoine U. Viola et al."
+      },
+      {
+        "title": "The effect of blue-enriched white light on cognitive performances and sleepiness of night-shift workers: A field study",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28495465/",
+        "author": "Majid Motamedzadeh et al. / PubMed"
+      },
+      {
+        "title": "Blue-Enriched White Light Improves Performance but Not Subjective Alertness and Circadian Adaptation During Three Consecutive Simulated Night Shifts",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7462016/",
+        "author": "Erlend Sunde et al."
+      },
+      {
+        "title": "The effect of blue light on cognitive function at workplaces: A systematic review",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39613209/",
+        "author": "PubMed"
+      }
+    ],
+    "tags": ["科学・医学", "照明", "集中力", "青色光"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "water_wrinkled_fingers_grip",
+    "title": "「水に浸かった指のシワは滑りにくくするため」は本当か？",
+    "category": "科学・医学",
+    "claim": "指が水に浸かるとシワになるのは、濡れた物を滑りにくくするためである",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "風呂やプールで指先がふやけてシワになるのは、タイヤの溝のように水を逃がし、濡れた物をつかみやすくするためだ、と説明されることがある。",
+    "explanation": "この説には研究上の根拠がある。水に浸かった指のシワは単なる皮膚の吸水ではなく、自律神経による血管収縮が関わる能動的な反応とされる。2013年の Biology Letters の研究では、シワのある指の方が水中の物体を速く扱え、乾いた物体では差が出なかった。一方、2014年の PLOS ONE 研究では同様の課題を再検証しても、濡れた物を扱う器用さや触覚に有意な改善は見られなかった。2021年の PLOS ONE 研究では、濡れた物体をつかむ際に必要な握力がシワで効率化する結果が報告されている。",
+    "truth": "より正確には、水でできる指のシワは濡れた物を扱う効率を高める可能性があるが、それが唯一の目的だと断定できる段階ではない。少なくとも『皮膚が水を吸ってただ膨らむだけ』ではなく神経制御が関わる現象であり、滑りにくさを助けるという仮説は有力。ただし研究結果は完全には一致しておらず、どの作業条件でどれほど役立つかは限定的に見る必要がある。",
+    "why_spread": "タイヤの溝のように水を逃がすという説明は直感的で覚えやすい。さらに『進化的に役立つ機能だった』という物語は面白く、研究の条件や再現性の議論が省かれたまま広まりやすい。",
+    "how_to_identify": "体の仕組みの説明で『〜するため』と目的語で語られたら、機能が実験で示されたのか、進化的理由まで示されたのかを分けて読む。1本の研究だけでなく、追試や反対結果があるか確認すると判断しやすい。",
+    "sources": [
+      {
+        "title": "Water-induced finger wrinkles improve handling of wet objects",
+        "url": "https://researchportal.northumbria.ac.uk/en/publications/water-induced-finger-wrinkles-improve-handling-of-wet-objects/",
+        "author": "Kyriacos Kareklas, Daniel Nettle, Tom V. Smulders"
+      },
+      {
+        "title": "Water-Induced Finger Wrinkles Do Not Affect Touch Acuity or Dexterity in Handling Wet Objects",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3885627/",
+        "author": "Julia Haseleu et al."
+      },
+      {
+        "title": "Water-immersion finger-wrinkling improves grip efficiency in handling wet objects",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34288934/",
+        "author": "Nick J. Davis / PubMed"
+      },
+      {
+        "title": "Why Water Turns Fingers and Toes Into Prunes",
+        "url": "https://health.clevelandclinic.org/why-water-makes-your-skin-look-like-a-prune-and-not-a-plum/",
+        "author": "Cleveland Clinic"
+      }
+    ],
+    "tags": ["科学・医学", "人体", "皮膚", "俗説"],
+    "created_at": "2026-05-12"
+  },
+  {
+    "id": "santa_red_suit_coca_cola_origin",
+    "title": "「サンタの赤い服はコカ・コーラCMが起源」は本当か？",
+    "category": "歴史",
+    "claim": "サンタクロースの赤い服はコカ・コーラの広告・CMが起源である",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "サンタクロースが赤い服を着ているのは、コカ・コーラのブランドカラーに合わせて広告で描かれたからだ、という話はクリスマス雑学としてよく語られる。",
+    "explanation": "コカ・コーラが現在のサンタ像の普及に大きく関わったことは事実。しかし、赤い服そのものをコカ・コーラが初めて作ったわけではない。コカ・コーラ公式も、同社はサンタクロースの伝説を作ったわけではないと説明している。1931年に同社がハッドン・サンドブロムへ広告用サンタを依頼し、温かく陽気で人間味のあるサンタ像を広く定着させた。一方、19世紀のトーマス・ナストの挿絵など、赤い服や白い毛皮縁のサンタ像はコカ・コーラ広告以前から存在していた。",
+    "truth": "より正確には、「赤い服のサンタはコカ・コーラ以前にもあったが、コカ・コーラの1930年代以降の広告が、現在よく知られる丸顔で陽気な赤い服のサンタ像を世界的に強く定着させた」である。起源ではなく、標準化・普及への影響が大きかったと見るのが妥当である。",
+    "why_spread": "サンタの赤白配色とコカ・コーラのブランドカラーが一致しており、広告の印象も非常に強い。そのため『広めた』が『作った』に変わりやすい。企業広告が文化イメージを変えた例として話しやすいことも、俗説化を後押しした。",
+    "how_to_identify": "文化史の『起源』話では、初出、普及、標準化を分けて確認する。広告が強く広めた事実があっても、それ以前の挿絵や文学、民間伝承に同じ要素がないかを見ると誇張を見分けやすい。",
+    "sources": [
+      {
+        "title": "Did Coca-Cola create Santa Claus?",
+        "url": "https://www.coca-cola.com/us/en/about-us/faq/did-coca-cola-create-santa-claus",
+        "author": "The Coca-Cola Company"
+      },
+      {
+        "title": "Santa Claus: Real Origins & Legend",
+        "url": "https://www.history.com/articles/santa-claus",
+        "author": "HISTORY"
+      },
+      {
+        "title": "Santa Claus",
+        "url": "https://www.britannica.com/topic/Santa-Claus",
+        "author": "Encyclopaedia Britannica"
+      },
+      {
+        "title": "Did Coca-Cola Invent the Modern Image of Santa Claus?",
+        "url": "https://www.snopes.com/fact-check/the-claus-that-refreshes/",
+        "author": "Snopes"
+      }
+    ],
+    "tags": ["歴史", "クリスマス", "サンタクロース", "広告"],
+    "created_at": "2026-05-12"
   }
 ]
