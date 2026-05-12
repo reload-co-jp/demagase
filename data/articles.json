@@ -1188,5 +1188,37 @@
     ],
     "tags": ["科学・医学", "腸内細菌", "肥満", "俗説"],
     "created_at": "2026-05-04"
+  },
+  {
+    "id": "genghis_khan_1000_children",
+    "title": "チンギス・ハーンには1000人の子どもがいたか？",
+    "category": "歴史",
+    "claim": "チンギス・ハーン本人には1000人の子どもがいた",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "チンギス・ハーンについては、『世界中に膨大な子孫がいる』『1,000人の子どもをもうけた』といった話がしばしばセットで語られる。",
+    "explanation": "この話はかなり誇張されている。歴史資料ではチンギス・ハーンに複数の妻や側室がいたこと、少なくとも著名な息子たちがいたことは確かだが、『本人の直系の子どもが1000人いた』と裏づける信頼できる史料は確認しにくい。一方で有名な遺伝学研究では、中央アジアを中心に広く分布するY染色体の系統がチンギス・ハーンの男系子孫に由来する可能性が提案されており、ここから『子どもが1000人』のような話に飛躍して広まったとみられる。",
+    "truth": "より正確には、チンギス・ハーンには多くの子や子孫がいた可能性は高いが、本人の子ども数を1000人とする根拠は弱い。広く知られた『子孫が非常に多い』という説自体も、あくまでY染色体系統の推定に基づく議論であり、本人の実子数を直接示すものではない。",
+    "why_spread": "『1人の征服者が膨大な血統を残した』という物語は非常に印象が強い。遺伝学の『多くの現代人が男系子孫かもしれない』という話が、いつの間にか『本人に1000人の子どもがいた』というわかりやすい数字へ変換されて広まりやすい。",
+    "how_to_identify": "歴史人物の『○○人の子ども』『世界の何人が子孫』といった話は、実子数と何世代も後の子孫数が混同されやすい。元の研究が何を測っているのか、史料の話なのか遺伝統計の話なのかを分けて確認すると見分けやすい。",
+    "sources": [
+      {
+        "title": "The genetic legacy of the Mongols",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12592608/",
+        "author": "The American Journal of Human Genetics / PubMed"
+      },
+      {
+        "title": "Genghis Khan: Facts & Related Content",
+        "url": "https://www.britannica.com/facts/Genghis-Khan",
+        "author": "Encyclopaedia Britannica"
+      },
+      {
+        "title": "Mongol Empire | Key People",
+        "url": "https://www.britannica.com/summary/Key-People-of-the-Mongol-Empire",
+        "author": "Encyclopaedia Britannica"
+      }
+    ],
+    "tags": ["歴史", "人物", "遺伝", "俗説"],
+    "created_at": "2026-05-12"
   }
 ]
