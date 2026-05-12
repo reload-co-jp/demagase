@@ -29,7 +29,18 @@ export const ArticleListClient = ({ articles, categories, initialCategory }: Pro
 
   return (
     <div>
-      <div style={{ marginBottom: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div
+        style={{
+          marginBottom: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.75rem",
+          background: "var(--surface)",
+          border: "1px solid var(--border)",
+          borderRadius: "4px",
+          padding: "0.9rem",
+        }}
+      >
         <input
           className="input"
           type="search"
@@ -62,10 +73,10 @@ export const ArticleListClient = ({ articles, categories, initialCategory }: Pro
         </p>
       ) : (
         <>
-          <p style={{ fontSize: "0.875rem", color: "var(--muted)", marginBottom: "1rem" }}>
+          <p style={{ fontSize: "0.8125rem", color: "var(--muted)", marginBottom: "0.75rem" }}>
             {filtered.length}件の記事
           </p>
-          <div className="grid-3">
+          <div className="dense-list">
             {filtered.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}

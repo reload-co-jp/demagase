@@ -146,7 +146,7 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
   }
 
   return (
-    <article style={{ maxWidth: "760px", margin: "0 auto" }}>
+    <article style={{ maxWidth: "920px", margin: "0 auto" }}>
       <Script id="article-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <Script
         id="claimreview-json-ld"

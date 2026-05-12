@@ -4,7 +4,8 @@ import Script from "next/script"
 import "./reset.css"
 import "./globals.css"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://demagase.reload.co.jp"
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://demagase.reload.co.jp"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -13,8 +14,18 @@ export const metadata: Metadata = {
     default: "DemaGase｜雑学デマ検証サイト",
     template: "%s | DemaGase",
   },
-  description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
-  keywords: ["雑学", "トリビア", "デマ", "ファクトチェック", "語源", "俗説", "誤用", "検証"],
+  description:
+    "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+  keywords: [
+    "雑学",
+    "トリビア",
+    "デマ",
+    "ファクトチェック",
+    "語源",
+    "俗説",
+    "誤用",
+    "検証",
+  ],
   alternates: { canonical: "/" },
   referrer: "origin-when-cross-origin",
   creator: "DemaGase",
@@ -35,14 +46,18 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     siteName: "DemaGase",
     title: "DemaGase｜雑学デマ検証サイト",
-    description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+    description:
+      "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
     url: "/",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "DemaGase" }],
+    images: [
+      { url: "/opengraph-image", width: 1200, height: 630, alt: "DemaGase" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "DemaGase｜雑学デマ検証サイト",
-    description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+    description:
+      "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
     images: ["/twitter-image"],
   },
 }
@@ -57,7 +72,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     name: "DemaGase",
     alternateName: "デマガセ",
     url: siteUrl,
-    description: "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
+    description:
+      "広く知られている雑学・トリビアの中に含まれる誤情報を出典に基づいて検証するサイト。",
     inLanguage: "ja-JP",
     publisher: {
       "@type": "Organization",
@@ -69,7 +85,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
       <body>
-        <Script id="website-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
+        <Script
+          id="website-json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
         {isProduction && (
           <>
             <Script
@@ -94,30 +114,40 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           }}
         >
           <div
-            className="container"
+            className="container site-header-inner"
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              height: "3.5rem",
-              padding: "0",
+              padding: ".5rem",
             }}
           >
             <Link
               href="/"
+              className="site-header-brand"
               style={{
-                fontSize: "1.125rem",
+                fontSize: "1.05rem",
                 fontWeight: 800,
                 color: "var(--text)",
                 textDecoration: "none",
               }}
             >
               DemaGase
-              <span style={{ fontSize: "0.6875rem", color: "var(--muted)", marginLeft: "0.375rem", fontWeight: 400 }}>
+              <span
+                style={{
+                  fontSize: "0.68rem",
+                  color: "var(--muted)",
+                  marginLeft: "0.375rem",
+                  fontWeight: 400,
+                }}
+              >
                 雑学デマ検証
               </span>
             </Link>
-            <nav style={{ display: "flex", gap: "1.5rem", fontSize: "0.875rem" }}>
+            <nav
+              className="site-header-nav"
+              style={{ display: "flex", gap: ".25rem", fontSize: "0.8125rem" }}
+            >
               <Link href="/articles/" style={{ color: "var(--muted)" }}>
                 記事一覧
               </Link>
@@ -127,19 +157,26 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             </nav>
           </div>
         </header>
-        <main className="container" style={{ padding: "2rem 1.25rem", minHeight: "calc(100dvh - 3.5rem - 3.5rem)" }}>
+        <main
+          className="container"
+          style={{
+            padding: "1rem 1.25rem 2rem",
+            minHeight: "calc(100dvh - 7rem)",
+          }}
+        >
           {children}
         </main>
         <footer
           style={{
             backgroundColor: "var(--surface)",
             borderTop: "1px solid var(--border)",
-            height: "3.5rem",
             display: "flex",
             alignItems: "center",
+            padding: "1rem",
+            gap: "0.5rem",
           }}
         >
-          <div className="container" style={{ padding: "0" }}>
+          <div className="container site-footer-inner" style={{ padding: "0" }}>
             <p
               style={{
                 fontSize: "0.75rem",
@@ -150,10 +187,15 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 flexWrap: "wrap",
               }}
             >
-              &copy; 2026 DemaGase - 情報は正確を期していますが、専門家への相談を推奨します。
-              <span aria-hidden="true">/</span>
-              <Link href="https://reload.co.jp/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)" }}>
-                運営会社: 株式会社リロード
+              &copy; 2026 DemaGase -
+              情報は正確を期していますが、専門家への相談を推奨します。
+              <Link
+                href="https://reload.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--muted)" }}
+              >
+                運営: 株式会社リロード
               </Link>
             </p>
           </div>

@@ -32,89 +32,86 @@ const VERDICTS = [
 const Page: FC = () => {
   const articles = getAllArticles()
   const categories = getAllCategories()
-  const newArticles = articles.slice(0, 6)
+  const newArticles = articles.slice(0, 12)
+  const featuredCategories = categories.slice(0, 10)
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-      <section>
-        <div
-          style={{
-            marginBottom: "0.75rem",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            padding: "0.45rem 0.8rem",
-            borderRadius: "999px",
-            background: "var(--accent-soft)",
-            border: "1px solid var(--border)",
-          }}
-        >
-          <span style={{ fontSize: "0.95rem" }}>✨</span>
-          <p style={{ fontSize: "0.78rem", color: "var(--text)", fontWeight: 700 }}>
-            今日の雑学デマ
+    <div className="bookmark-shell">
+      <div style={{ minWidth: 0 }}>
+        <section style={{ marginBottom: "1rem", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px", padding: "1rem" }}>
+          <h1 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "0.4rem" }}>DemaGase</h1>
+          <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+            雑学・語源・俗説を出典ベースで検証する読み物サイト。
           </p>
-        </div>
-        <p style={{ color: "var(--muted)", marginBottom: "1rem", fontSize: "0.95rem" }}>
-          ひとつ読むだけで、誰かに話したくなる検証ネタ。
-        </p>
-        <TodayArticle articles={articles} />
-      </section>
+        </section>
 
-      <section>
-        <h2 className="section-title">新着記事</h2>
-        <div className="grid-3">
-          {newArticles.map((article) => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
-        </div>
-        <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
-          <Link href="/articles/" className="btn">
-            すべての記事を見る
-          </Link>
-        </div>
-      </section>
+        <section style={{ marginBottom: "1rem" }}>
+          <h2 className="section-title">注目記事</h2>
+          <TodayArticle articles={articles} />
+        </section>
 
-      <section>
-        <h2 className="section-title">カテゴリ</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-          {categories.map((cat) => (
-            <Link
-              key={cat}
-              href={`/articles/?category=${encodeURIComponent(cat)}`}
-              className="btn"
-              style={{ fontSize: "0.9375rem" }}
-            >
-              {cat}
+        <section>
+          <h2 className="section-title">新着エントリー</h2>
+          <div className="dense-list">
+            {newArticles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside style={{ display: "flex", flexDirection: "column", gap: "1rem", position: "sticky", top: "1rem" }}>
+        <section style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px", padding: "0.9rem" }}>
+          <h2 style={{ fontSize: "0.85rem", fontWeight: 700, marginBottom: "0.75rem" }}>カテゴリ</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+            {featuredCategories.map((cat) => (
+              <Link
+                key={cat}
+                href={`/articles/?category=${encodeURIComponent(cat)}`}
+                style={{
+                  color: "var(--text)",
+                  fontSize: "0.84rem",
+                  padding: "0.35rem 0",
+                  borderBottom: "1px solid var(--border)",
+                }}
+              >
+                {cat}
+              </Link>
+            ))}
+          </div>
+          <div style={{ marginTop: "0.75rem" }}>
+            <Link href="/articles/" className="btn">
+              記事一覧へ
             </Link>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section>
-        <h2 className="section-title">判定ラベルについて</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          {VERDICTS.map((v) => (
-            <div
-              key={v.label}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                padding: "0.75rem 1rem",
-                background: "rgba(255,255,255,0.72)",
-                border: "1px solid var(--border)",
-                borderRadius: "8px",
-              }}
-            >
-              <span style={{ fontSize: "1.25rem" }}>{v.icon}</span>
-              <div>
-                <span style={{ fontWeight: 600, marginRight: "0.5rem" }}>{v.label}</span>
-                <span style={{ fontSize: "0.875rem", color: "var(--muted)" }}>{v.desc}</span>
+        <section style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px", padding: "0.9rem" }}>
+          <h2 style={{ fontSize: "0.85rem", fontWeight: 700, marginBottom: "0.75rem" }}>判定ラベル</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+            {VERDICTS.map((v) => (
+              <div key={v.label} style={{ display: "flex", gap: "0.65rem", alignItems: "flex-start" }}>
+                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--accent-secondary)", minWidth: "2.2rem" }}>{v.label}</span>
+                <span style={{ fontSize: "0.78rem", color: "var(--muted)", lineHeight: 1.55 }}>{v.desc}</span>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+
+        <section style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px", padding: "0.9rem" }}>
+          <h2 style={{ fontSize: "0.85rem", fontWeight: 700, marginBottom: "0.75rem" }}>人気タグ</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+            {articles
+              .flatMap((article) => article.tags)
+              .slice(0, 18)
+              .map((tag, index) => (
+                <span key={`${tag}-${index}`} className="tag">
+                  {tag}
+                </span>
+              ))}
+          </div>
+        </section>
+      </aside>
     </div>
   )
 }

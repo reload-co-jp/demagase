@@ -1,14 +1,14 @@
 import { FC } from "react"
 import { Verdict } from "types/article"
 
-type Config = { icon: string; label: string; color: string; bg: string }
+type Config = { label: string; color: string }
 
 const VERDICT: Record<Verdict, Config> = {
-  false: { icon: "❌", label: "誤り", color: "#fff", bg: "#ff6b6b" },
-  partial: { icon: "⚠️", label: "一部誤り", color: "#5b3a00", bg: "#ffcf5c" },
-  unconfirmed: { icon: "🤔", label: "有力説だが確定ではない", color: "#5d3a00", bg: "#ffb86b" },
-  true: { icon: "⭕", label: "正しい", color: "#fff", bg: "#3ecf8e" },
-  unknown: { icon: "❓", label: "不明", color: "#fff", bg: "#8f86b3" },
+  false: { label: "誤り", color: "#e44b4b" },
+  partial: { label: "一部誤り", color: "#f0a000" },
+  unconfirmed: { label: "有力説だが確定ではない", color: "#c58a2b" },
+  true: { label: "正しい", color: "#19a565" },
+  unknown: { label: "不明", color: "#778391" },
 }
 
 type Props = {
@@ -19,24 +19,24 @@ type Props = {
 export const VerdictBadge: FC<Props> = ({ verdict, size = "md" }) => {
   const c = VERDICT[verdict]
   const styles: Record<string, React.CSSProperties> = {
-    sm: { padding: "0.2rem 0.5rem", fontSize: "0.75rem" },
-    md: { padding: "0.3rem 0.75rem", fontSize: "0.875rem" },
-    lg: { padding: "0.6rem 1.25rem", fontSize: "1.125rem" },
+    sm: { padding: "0.16rem 0.42rem", fontSize: "0.6875rem" },
+    md: { padding: "0.22rem 0.55rem", fontSize: "0.75rem" },
+    lg: { padding: "0.38rem 0.8rem", fontSize: "0.9375rem" },
   }
   return (
     <span
       style={{
-        backgroundColor: c.bg,
         color: c.color,
-        borderRadius: "6px",
+        backgroundColor: "transparent",
         fontWeight: 700,
         display: "inline-flex",
         alignItems: "center",
-        gap: "0.3rem",
+        gap: "0.25rem",
+        letterSpacing: 0,
         ...styles[size],
       }}
     >
-      {c.icon} {c.label}
+      <span>{c.label}</span>
     </span>
   )
 }

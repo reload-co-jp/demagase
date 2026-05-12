@@ -25,7 +25,10 @@ const ArticlesPage: FC = () => {
 
   return (
     <div>
-      <h1 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "1.75rem" }}>記事一覧</h1>
+      <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px", padding: "1rem", marginBottom: "1rem" }}>
+        <h1 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.35rem" }}>記事一覧</h1>
+        <p style={{ color: "var(--muted)", fontSize: "0.875rem" }}>新着順で雑学デマ検証記事を一覧表示。</p>
+      </div>
       <ArticleListClient articles={articles} categories={categories} />
     </div>
   )
