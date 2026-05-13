@@ -1627,5 +1627,148 @@
     ],
     "tags": ["歴史", "クリスマス", "サンタクロース", "広告"],
     "created_at": "2026-05-12"
+  },
+  {
+    "id": "full_stomach_hearing_loss",
+    "title": "「満腹になると耳が聞こえにくくなる」は本当か？",
+    "category": "科学・医学",
+    "claim": "人間は満腹になると耳が聞こえにくくなる",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "たくさん食べて満腹になると、胃腸に血液が集まるため耳や脳への血流が減り、聴力が一時的に落ちる、と説明されることがある。食後にぼんやりしたり眠くなったりする経験と結びつけて語られやすい。",
+    "explanation": "食後に眠気やだるさ、注意力の低下が起きることはあり、医学的には食後傾眠と呼ばれる。大きな食事の後に認知課題の反応や注意が落ちるという研究もある。また、高齢者や糖尿病、自律神経の働きに問題がある人では、食後に血圧が下がる食後低血圧が起き、めまい・ふらつき・失神につながる場合がある。しかし、健康な人が満腹になっただけで音を感じる能力そのもの、つまり聴力閾値が一般的に悪化するという確かな根拠は見つからない。『聞こえにくい』と感じる場合は、聴力低下ではなく眠気や注意低下で会話への集中が落ちている可能性がある。",
+    "truth": "より正確には、「満腹で耳が悪くなる」のではなく、「食後の眠気・注意低下や、条件によっては食後低血圧の症状で、聞き取りにくく感じることがある」である。糖尿病では長期的な高血糖や低血糖が内耳の血管・神経に影響し、聴力低下と関連することがあるが、これは食べ過ぎ直後の満腹とは別の話である。食後だけでなく片耳の急な難聴、耳鳴り、強いめまい、ろれつが回らないなどを伴う場合は、俗説として片づけず医療機関で確認した方がよい。",
+    "why_spread": "食後に眠くなる実感は多くの人にあり、『消化に血液を取られる』という説明も直感的で覚えやすい。そのため、注意力の低下やぼんやり感が『耳そのものが聞こえにくくなる』へ拡大されやすい。さらに、食後低血圧や糖尿病と聴力の関係といった別の医学情報が混ざり、単純な雑学として広まったと考えられる。",
+    "how_to_identify": "体感の俗説では、『感覚器そのものの能力低下』と『注意・眠気・体調による感じ方の変化』を分ける。血流や神経を理由にした説明でも、対象が健康な人か、高齢者や持病のある人か、急性の変化か長期的な影響かを確認すると誇張を見分けやすい。",
+    "sources": [
+      {
+        "title": "Postprandial Hypotension",
+        "url": "https://www.msdmanuals.com/home/heart-and-blood-vessel-disorders/symptoms-of-heart-and-blood-vessel-disorders/postprandial-hypotension",
+        "author": "MSD Manual Consumer Version"
+      },
+      {
+        "title": "Acute effects of meals, noise and nightwork",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3756378/",
+        "author": "A. Smith, C. Miles / British Journal of Psychology"
+      },
+      {
+        "title": "Hearing Loss",
+        "url": "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-hearing-loss.html",
+        "author": "Centers for Disease Control and Prevention"
+      },
+      {
+        "title": "Auditory acuity in type 2 diabetes mellitus",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2822154/",
+        "author": "Indian Journal of Otolaryngology and Head & Neck Surgery"
+      }
+    ],
+    "tags": ["科学・医学", "人体", "食後", "聴力"],
+    "created_at": "2026-05-13"
+  },
+  {
+    "id": "antarctica_no_common_cold",
+    "title": "「南極ではどんなに寒くても風邪をひかない」は本当か？",
+    "category": "科学・医学",
+    "claim": "南極では、どんなに寒くても人は風邪をひかない",
+    "verdict": "partial",
+    "verdict_label": "一部誤り",
+    "common_belief": "風邪は寒さで起きる病気だと思われがちだが、南極はあまりに寒く乾燥していてウイルスも生きられないため、どんなに寒くても人は風邪をひかない、と説明されることがある。",
+    "explanation": "風邪は寒さそのものではなく、主にライノウイルスなど複数の呼吸器ウイルスによる上気道感染で起きる。南極の越冬隊のように外部との接触が長く断たれる集団では、新しいウイルスが持ち込まれにくく、呼吸器感染が少なくなることはある。1968年の南極越冬隊研究でも、上陸直後や交代要員との接触時には感染が出やすく、隔離が成立すると新規症例はまれになるという傾向が報告された。ただし、南極で風邪が起きないわけではない。1973年には17週間の完全隔離後に12人中6人が風邪様症状を順に発症した報告があり、マクマード基地ではライノウイルスやパラインフルエンザウイルスによる上気道感染も確認されている。",
+    "truth": "より正確には、「南極は寒いから風邪をひかない」のではなく、「隔離された南極基地では外から風邪ウイルスが入りにくいため、流行が起きにくい時期がある」である。船や航空機、交代要員、観測隊員の移動でウイルスが持ち込まれれば、南極でも風邪様の呼吸器感染は起きる。寒さは体調や症状に影響しうるが、風邪の直接原因は感染であり、気温だけで発症の有無は決まらない。",
+    "why_spread": "『寒いと風邪をひく』という日常感覚と、『南極では風邪が少ない』という隔離環境の事実が混ざった。さらに、極寒・乾燥・無菌に近いというイメージが強く、「ウイルスがいないから絶対ひかない」という覚えやすい雑学に変わりやすい。",
+    "how_to_identify": "病気の俗説では、原因と流行条件を分けて考える。風邪なら、寒さ、乾燥、人の密集、換気、ウイルスの持ち込みを別々に見る。『その場所では少ない』と『絶対に起きない』は違うため、隔離集団の研究では外部接触の有無を確認するとよい。",
+    "sources": [
+      {
+        "title": "About Common Cold",
+        "url": "https://www.cdc.gov/common-cold/about/index.html",
+        "author": "Centers for Disease Control and Prevention"
+      },
+      {
+        "title": "The epidemiology of respiratory infection in an isolated Antarctic community",
+        "url": "https://www.cambridge.org/core/journals/epidemiology-and-infection/article/epidemiology-of-respiratory-infection-in-an-isolated-antarctic-community/93B8D9BA0E91A76C8A0614D97A22F40E",
+        "author": "A. S. Cameron, B. W. Moore / Journal of Hygiene"
+      },
+      {
+        "title": "An outbreak of common colds at an Antarctic base after seventeen weeks of complete isolation",
+        "url": "https://www.cambridge.org/core/journals/epidemiology-and-infection/article/an-outbreak-of-common-colds-at-an-antarctic-base-after-seventeen-weeks-of-complete-isolation/1D3A49463583D06CEACE1CCF9C1A25B4",
+        "author": "T. R. Allen et al. / Journal of Hygiene"
+      },
+      {
+        "title": "Parainfluenzavirus upper respiratory tract illnesses in partially immune adult human subjects: a study at an Antarctic station",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/233480/",
+        "author": "A. J. Parkinson et al. / American Journal of Epidemiology"
+      },
+      {
+        "title": "Rhinovirus infections in an isolated antarctic station. Transmission of the viruses and susceptibility of the population",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2536217/",
+        "author": "E. C. Dick et al. / American Journal of Epidemiology"
+      }
+    ],
+    "tags": ["科学・医学", "南極", "風邪", "ウイルス"],
+    "created_at": "2026-05-13"
+  },
+  {
+    "id": "mamechishiki_bean_topic_origin",
+    "title": "「豆知識の由来は豆を語る人」は本当か？",
+    "category": "語源",
+    "claim": "「豆知識」の由来は、うんちくをたくさん語っていた人のテーマが「豆」についてだったことにある",
+    "verdict": "false",
+    "verdict_label": "誤り",
+    "common_belief": "昔、豆についてのうんちくをたくさん語る人がいて、その話が細かくて面白かったため、ちょっとした雑学を「豆知識」と呼ぶようになった、という小話として語られることがある。",
+    "explanation": "この人物や出来事を「豆知識」の語源とする根拠は、主要な辞書類では確認できない。コトバンク収録のデジタル大辞泉では「豆知識」は「ちょっとした知識。本筋からは外れているが、知っていると役に立つ話」と説明される。また「豆」は名詞に付く接頭語として、形や規模などが小さい意味を表し、「豆電球」「豆台風」などの例が挙げられている。つまり「豆知識」の豆は、豆そのものの話題というより、「小さい」「ちょっとした」という意味で読むのが自然である。",
+    "truth": "「豆知識」は、豆に関する知識ではなく「ちょっとした知識」「小さな知識」という意味の語である。語構成としては、小さいものを表す接頭語の「豆」と「知識」が結びついたものと考えるのが妥当で、特定のうんちく好きや豆の話題から生まれたという確かな記録は見当たらない。",
+    "why_spread": "「豆知識」という言葉は、字面だけ見ると「豆についての知識」とも読める。さらに「うんちくを語る人」というキャラクターを加えると、短くて覚えやすい由来話になるため、語源雑学として作られやすい。豆しばのように豆と豆知識を結びつけたキャラクター表現も、後から連想を強めた可能性がある。",
+    "how_to_identify": "複合語の語源では、字面どおりの物語に飛びつかず、各語の辞書上の用法を見る。接頭語としての意味がある場合、実物の由来ではなく比喩やサイズ感を表していることが多い。特定人物の逸話が出てきたら、名前・時代・初出資料まで確認すると見分けやすい。",
+    "sources": [
+      {
+        "title": "豆知識",
+        "url": "https://kotobank.jp/word/%E8%B1%86%E7%9F%A5%E8%AD%98-635786",
+        "author": "デジタル大辞泉 / 小学館"
+      },
+      {
+        "title": "豆",
+        "url": "https://kotobank.jp/word/%E8%B1%86-103023",
+        "author": "デジタル大辞泉・精選版 日本国語大辞典 / 小学館"
+      },
+      {
+        "title": "豆知識",
+        "url": "https://en.wiktionary.org/wiki/%E8%B1%86%E7%9F%A5%E8%AD%98",
+        "author": "Wiktionary"
+      }
+    ],
+    "tags": ["語源", "言葉", "豆知識", "雑学"],
+    "created_at": "2026-05-13"
+  },
+  {
+    "id": "dental_clinics_more_than_convenience_stores",
+    "title": "「日本の歯医者はコンビニより多い」は本当か？",
+    "category": "生活",
+    "claim": "日本の歯医者の数はコンビニの数より多い",
+    "verdict": "true",
+    "verdict_label": "正しい",
+    "common_belief": "日本には歯医者が多すぎて、全国のコンビニよりも多い、とよく言われる。歯科医院の競争が激しいことを説明する雑学として語られることが多い。",
+    "explanation": "「歯医者」を歯科診療所の数として見るなら、この比較は現在もおおむね正しい。厚生労働省の医療施設動態調査では、令和8年（2026年）2月末時点の歯科診療所は65,290施設。一方、日本フランチャイズチェーン協会の2026年2月度コンビニエンスストア統計調査月報では、JFA正会員7社を対象にしたコンビニ店舗数は56,149店と報じられている。単純比較では、歯科診療所の方が約9,100多い。",
+    "truth": "より正確には、「歯科医師の人数」ではなく「歯科診療所の施設数」と「JFA正会員コンビニ店舗数」を比べると、歯科診療所の方が多い。2026年2月時点では、歯科診療所65,290施設、コンビニ56,149店で、差は9,141。なお、コンビニ側はJFA正会員7社の統計であり、調査対象や時点を変えると数字は多少変わる。それでも近年の全国規模の比較では、歯科診療所がコンビニを上回る状態が続いている。",
+    "why_spread": "歯科医院は住宅街や駅前にも多く、日常的に目に入りやすい。さらにコンビニは「どこにでもある店」の代表として使われるため、それより多いという比較は直感的で驚きがある。医療機関の多さや歯科経営の競争を伝える短い表現として広まったと考えられる。",
+    "how_to_identify": "数の比較では、何を数えているかを最初に確認する。歯科医師の人数なのか、歯科診療所の施設数なのか、コンビニは大手チェーンだけか、業界団体加盟社か、個人店まで含むのかで数字が変わる。統計の対象範囲と年月をそろえると、古い雑学か現在も成り立つ話かを見分けやすい。",
+    "sources": [
+      {
+        "title": "医療施設動態調査（令和8(2026)年2月末概数）",
+        "url": "https://www.mhlw.go.jp/toukei/saikin/hw/iryosd/m26/dl/is2602.pdf",
+        "author": "厚生労働省"
+      },
+      {
+        "title": "コンビニエンスストア 統計データ",
+        "url": "https://www.jfa-fc.or.jp/particle/320.html",
+        "author": "一般社団法人日本フランチャイズチェーン協会"
+      },
+      {
+        "title": "コンビニエンスストア／2月既存店1.6％増、気温高くソフトドリンク・アイス好調",
+        "url": "https://www.ryutsuu.biz/sales/s032316.html",
+        "author": "流通ニュース"
+      }
+    ],
+    "tags": ["生活", "歯科", "コンビニ", "統計"],
+    "created_at": "2026-05-13"
   }
 ]
