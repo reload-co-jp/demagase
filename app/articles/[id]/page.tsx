@@ -4,10 +4,15 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Script from "next/script"
 import { getAllArticles, getArticleById } from "lib/articles"
+import {
+  absoluteUrl,
+  getSeoDescription,
+  ORGANIZATION,
+  SITE_NAME,
+  SITE_URL,
+} from "lib/seo"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { ArticleCard } from "components/elements/article-card"
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://demagase.reload.co.jp"
 
 type Props = {
   params: Promise<{ id: string }>
@@ -30,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const article = getArticleById(id)
   if (!article) return {}
-  const description = article.explanation.slice(0, 120)
+  const description = getSeoDescription(article.explanation)
   return {
     title: article.title,
     description,
@@ -42,9 +47,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `/articles/${id}/`,
       publishedTime: article.created_at,
+      modifiedTime: article.created_at,
       section: article.category,
       tags: article.tags,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: article.title }],
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -55,7 +68,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const Section: FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
+const Section: FC<{ label: string; children: React.ReactNode }> = ({
+  label,
+  children,
+}) => (
   <section style={{ marginBottom: "2rem" }}>
     <h2
       style={{
@@ -90,27 +106,51 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
   if (!article) notFound()
 
   const allArticles = getAllArticles()
-  const related = allArticles.filter((a) => a.category === article.category && a.id !== article.id).slice(0, 3)
+  const related = allArticles
+    .filter((a) => a.category === article.category && a.id !== article.id)
+    .slice(0, 3)
+  const articleUrl = absoluteUrl(`/articles/${article.id}/`)
+  const description = getSeoDescription(article.explanation)
 
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
     headline: article.title,
-    description: article.explanation.slice(0, 120),
+    description,
     datePublished: article.created_at,
-    url: `${siteUrl}/articles/${article.id}/`,
-    publisher: { "@type": "Organization", name: "DemaGase", url: siteUrl },
-    keywords: article.tags.join(", "),
+    dateModified: article.created_at,
+    url: articleUrl,
+    inLanguage: "ja-JP",
+    author: ORGANIZATION,
+    publisher: ORGANIZATION,
+    articleSection: article.category,
+    keywords: [article.category, ...article.tags].join(", "),
+    isAccessibleForFree: true,
   }
 
   const claimReviewJsonLd = {
     "@context": "https://schema.org",
     "@type": "ClaimReview",
-    url: `${siteUrl}/articles/${article.id}/`,
+    url: articleUrl,
     datePublished: article.created_at,
     claimReviewed: article.claim,
-    author: { "@type": "Organization", name: "DemaGase", url: siteUrl },
-    publisher: { "@type": "Organization", name: "DemaGase", url: siteUrl },
+    author: ORGANIZATION,
+    publisher: ORGANIZATION,
+    itemReviewed: {
+      "@type": "Claim",
+      appearance: article.sources
+        .filter((source) => source.url)
+        .map((source) => ({
+          "@type": "CreativeWork",
+          name: source.title,
+          url: source.url,
+        })),
+      claimInterpreter: ORGANIZATION,
+    },
     reviewRating: {
       "@type": "Rating",
       ratingValue: verdictRatingMap[article.verdict],
@@ -128,26 +168,42 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
         "@type": "ListItem",
         position: 1,
         name: "ホーム",
-        item: `${siteUrl}/`,
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "記事一覧",
-        item: `${siteUrl}/articles/`,
+        item: `${SITE_URL}/articles/`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: article.title,
-        item: `${siteUrl}/articles/${article.id}/`,
+        item: articleUrl,
       },
     ],
   }
 
+  const relatedItemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${SITE_NAME} 関連記事`,
+    itemListElement: related.map((a, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(`/articles/${a.id}/`),
+      name: a.title,
+    })),
+  }
+
   return (
     <article style={{ maxWidth: "920px", margin: "0 auto" }}>
-      <Script id="article-json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <Script
+        id="article-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Script
         id="claimreview-json-ld"
         type="application/ld+json"
@@ -158,8 +214,23 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {related.length > 0 && (
+        <Script
+          id="related-item-list-json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(relatedItemListJsonLd),
+          }}
+        />
+      )}
       {/* Breadcrumb */}
-      <nav style={{ fontSize: "0.8125rem", color: "var(--muted)", marginBottom: "1.5rem" }}>
+      <nav
+        style={{
+          fontSize: "0.8125rem",
+          color: "var(--muted)",
+          marginBottom: "1.5rem",
+        }}
+      >
         <Link href="/">ホーム</Link>
         <span style={{ margin: "0 0.5rem" }}>/</span>
         <Link href="/articles/">記事一覧</Link>
@@ -172,10 +243,24 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
         <div style={{ marginBottom: "1rem" }}>
           <VerdictBadge verdict={article.verdict} size="lg" />
         </div>
-        <h1 style={{ fontSize: "1.75rem", fontWeight: 800, lineHeight: 1.35, marginBottom: "1rem" }}>
+        <h1
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: 800,
+            lineHeight: 1.35,
+            marginBottom: "1rem",
+          }}
+        >
           {article.title}
         </h1>
-        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "0.5rem",
+            flexWrap: "wrap",
+            alignItems: "center",
+          }}
+        >
           <span
             style={{
               fontSize: "0.8125rem",
@@ -192,7 +277,13 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
               {tag}
             </span>
           ))}
-          <span style={{ fontSize: "0.8125rem", color: "var(--muted)", marginLeft: "auto" }}>
+          <span
+            style={{
+              fontSize: "0.8125rem",
+              color: "var(--muted)",
+              marginLeft: "auto",
+            }}
+          >
             {article.created_at}
           </span>
         </div>
@@ -201,7 +292,9 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
       {/* Claim */}
       <Section label="よくある説（俗説）">
         <p style={{ fontWeight: 600 }}>{article.claim}</p>
-        <p style={{ marginTop: "0.5rem", color: "var(--muted)" }}>{article.common_belief}</p>
+        <p style={{ marginTop: "0.5rem", color: "var(--muted)" }}>
+          {article.common_belief}
+        </p>
       </Section>
 
       {/* Verdict detail */}
@@ -227,7 +320,14 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
       {/* Sources */}
       {article.sources.length > 0 && (
         <Section label="出典">
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+          <ul
+            style={{
+              listStyle: "none",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+            }}
+          >
             {article.sources.map((s, i) => (
               <li key={i} style={{ fontSize: "0.875rem" }}>
                 {s.url ? (
@@ -237,7 +337,11 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
                 ) : (
                   <span>{s.title}</span>
                 )}
-                {s.author && <span style={{ color: "var(--muted)", marginLeft: "0.5rem" }}>— {s.author}</span>}
+                {s.author && (
+                  <span style={{ color: "var(--muted)", marginLeft: "0.5rem" }}>
+                    — {s.author}
+                  </span>
+                )}
               </li>
             ))}
           </ul>
