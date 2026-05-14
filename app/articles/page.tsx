@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { Suspense } from "react"
 import type { Metadata } from "next"
 import { getAllArticles, getAllCategories } from "lib/articles"
 import { ArticleListClient } from "components/features/article-list-client"
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 }
 
-const ArticlesPage: FC = () => {
+const ArticlesPage = () => {
   const articles = getAllArticles()
   const categories = getAllCategories()
 
@@ -29,7 +29,9 @@ const ArticlesPage: FC = () => {
         <h1 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.35rem" }}>記事一覧</h1>
         <p style={{ color: "var(--muted)", fontSize: "0.875rem" }}>新着順で雑学デマ検証記事を一覧表示。</p>
       </div>
-      <ArticleListClient articles={articles} categories={categories} />
+      <Suspense fallback={null}>
+        <ArticleListClient articles={articles} categories={categories} />
+      </Suspense>
     </div>
   )
 }
