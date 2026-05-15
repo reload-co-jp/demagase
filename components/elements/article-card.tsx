@@ -101,7 +101,7 @@ export const ArticleCard: FC<Props> = ({ article }) => {
               </span>
             ))}
           </div>
-          <span style={{ fontSize: "0.66rem", color: "var(--muted)", whiteSpace: "nowrap" }}>{article.created_at}</span>
+          <time dateTime={article.created_at} style={{ fontSize: "0.66rem", color: "var(--muted)", whiteSpace: "nowrap" }}>{article.created_at}</time>
         </div>
       </div>
     </Link>

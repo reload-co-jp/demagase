@@ -224,13 +224,17 @@ const Page: FC = () => {
             人気タグ
           </h2>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-            {articles
-              .flatMap((article) => article.tags)
+            {[...new Set(articles.flatMap((article) => article.tags))]
               .slice(0, 18)
-              .map((tag, index) => (
-                <span key={`${tag}-${index}`} className="tag">
+              .map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/articles/?tag=${encodeURIComponent(tag)}`}
+                  className="tag"
+                  style={{ textDecoration: "none" }}
+                >
                   {tag}
-                </span>
+                </Link>
               ))}
           </div>
         </section>

@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: article.tags,
       images: [
         {
-          url: "/opengraph-image",
+          url: `/articles/${id}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: article.title,
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: article.title,
       description,
-      images: ["/twitter-image"],
+      images: [`/articles/${id}/opengraph-image`],
     },
   }
 }
@@ -261,23 +261,31 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
             alignItems: "center",
           }}
         >
-          <span
+          <Link
+            href={`/articles/category/${encodeURIComponent(article.category)}/`}
             style={{
               fontSize: "0.8125rem",
               color: "var(--accent)",
               background: "rgba(88,166,255,0.1)",
               padding: "0.2rem 0.625rem",
               borderRadius: "100px",
+              textDecoration: "none",
             }}
           >
             {article.category}
-          </span>
+          </Link>
           {article.tags.map((tag) => (
-            <span key={tag} className="tag">
+            <Link
+              key={tag}
+              href={`/articles/?tag=${encodeURIComponent(tag)}`}
+              className="tag"
+              style={{ textDecoration: "none" }}
+            >
               {tag}
-            </span>
+            </Link>
           ))}
-          <span
+          <time
+            dateTime={article.created_at}
             style={{
               fontSize: "0.8125rem",
               color: "var(--muted)",
@@ -285,7 +293,7 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
             }}
           >
             {article.created_at}
-          </span>
+          </time>
         </div>
       </header>
 

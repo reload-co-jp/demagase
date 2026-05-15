@@ -101,7 +101,7 @@ export const TodayArticle = ({ articles }: Props) => {
               </span>
             ))}
           </div>
-          <span style={{ fontSize: "0.66rem", color: "var(--muted)", whiteSpace: "nowrap" }}>{article.created_at}</span>
+          <time dateTime={article.created_at} style={{ fontSize: "0.66rem", color: "var(--muted)", whiteSpace: "nowrap" }}>{article.created_at}</time>
         </div>
         <p style={{ fontSize: "0.8rem", color: "var(--accent)", fontWeight: 700 }}>続きを読む</p>
       </div>
