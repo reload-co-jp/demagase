@@ -8,6 +8,7 @@ export const SITE_DESCRIPTION =
 
 export const ORGANIZATION = {
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: SITE_URL,
 }

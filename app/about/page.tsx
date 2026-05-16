@@ -17,6 +17,12 @@ export const metadata: Metadata = {
       "DemaGase の運営方針、判定ラベル、記事の読み方をまとめたページ。",
     url: "/about/",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "このサイトについて | DemaGase",
+    description:
+      "DemaGase の運営方針、判定ラベル、記事の読み方をまとめたページ。",
+  },
 }
 
 const verdicts: { verdict: Verdict; desc: string }[] = [

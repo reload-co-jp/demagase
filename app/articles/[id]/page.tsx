@@ -121,6 +121,7 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     },
     headline: article.title,
     description,
+    image: absoluteUrl(`/articles/${article.id}/opengraph-image`),
     datePublished: article.created_at,
     dateModified: article.created_at,
     url: articleUrl,
