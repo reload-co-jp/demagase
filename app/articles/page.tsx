@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import type { Metadata } from "next"
 import Script from "next/script"
 import { getAllArticles, getAllCategories } from "lib/articles"
-import { absoluteUrl, SITE_NAME } from "lib/seo"
+import { absoluteUrl, SITE_NAME, SITE_URL } from "lib/seo"
 import { ArticleListClient } from "components/features/article-list-client"
 
 export const metadata: Metadata = {
@@ -27,6 +27,15 @@ export const metadata: Metadata = {
 const ArticlesPage = () => {
   const articles = getAllArticles()
   const categories = getAllCategories()
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "記事一覧", item: `${SITE_URL}/articles/` },
+    ],
+  }
+
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -42,6 +51,11 @@ const ArticlesPage = () => {
 
   return (
     <div>
+      <Script
+        id="articles-breadcrumb-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Script
         id="articles-item-list-json-ld"
         type="application/ld+json"

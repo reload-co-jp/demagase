@@ -2,7 +2,7 @@ import { FC } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
-import { ORGANIZATION, SITE_URL } from "lib/seo"
+import { ORGANIZATION, SITE_NAME, SITE_URL } from "lib/seo"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { Verdict } from "types/article"
 
@@ -45,6 +45,15 @@ const companyInfo = [
 ]
 
 const AboutPage: FC = () => {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "このサイトについて", item: `${SITE_URL}/about/` },
+    ],
+  }
+
   const aboutJsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -56,6 +65,11 @@ const AboutPage: FC = () => {
 
   return (
     <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+      <Script
+        id="about-breadcrumb-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Script
         id="about-json-ld"
         type="application/ld+json"

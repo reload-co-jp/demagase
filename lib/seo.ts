@@ -17,7 +17,7 @@ export function absoluteUrl(path: string): string {
   return new URL(path, SITE_URL).toString()
 }
 
-export function getSeoDescription(text: string, length = 120): string {
+export function getSeoDescription(text: string, length = 150): string {
   const normalized = text.replace(/\s+/g, " ").trim()
   return normalized.length > length
     ? `${normalized.slice(0, length - 1)}…`

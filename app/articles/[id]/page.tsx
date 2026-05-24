@@ -131,6 +131,13 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     articleSection: article.category,
     keywords: [article.category, ...article.tags].join(", "),
     isAccessibleForFree: true,
+    articleBody: [
+      article.claim,
+      article.explanation,
+      article.truth,
+      article.why_spread,
+      article.how_to_identify,
+    ].join("\n\n"),
   }
 
   const claimReviewJsonLd = {
