@@ -42,6 +42,18 @@ const CategoryPage: FC<Props> = async ({ params }) => {
 
   if (articles.length === 0) notFound()
 
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${category}の記事一覧 | ${SITE_NAME}`,
+    url: absoluteUrl(`/articles/category/${slug}/`),
+    description: `「${category}」カテゴリの雑学・俗説検証記事一覧。出典付きでファクトチェック。`,
+    inLanguage: "ja-JP",
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+    publisher: ORGANIZATION,
+    about: { "@type": "Thing", name: category },
+  }
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -68,6 +80,13 @@ const CategoryPage: FC<Props> = async ({ params }) => {
 
   return (
     <div>
+      <Script
+        id="category-collection-page-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionPageJsonLd),
+        }}
+      />
       <Script
         id="category-breadcrumb-json-ld"
         type="application/ld+json"

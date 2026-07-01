@@ -27,6 +27,16 @@ export const metadata: Metadata = {
 const ArticlesPage = () => {
   const articles = getAllArticles()
   const categories = getAllCategories()
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${SITE_NAME} 記事一覧`,
+    url: absoluteUrl("/articles/"),
+    description:
+      "雑学・トリビアのデマ検証記事の一覧。カテゴリやタグで絞り込めます。",
+    inLanguage: "ja-JP",
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+  }
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -51,6 +61,11 @@ const ArticlesPage = () => {
 
   return (
     <div>
+      <Script
+        id="articles-collection-page-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
       <Script
         id="articles-breadcrumb-json-ld"
         type="application/ld+json"

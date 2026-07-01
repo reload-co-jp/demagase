@@ -9,8 +9,10 @@ export const SITE_DESCRIPTION =
 export const ORGANIZATION = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
-  name: SITE_NAME,
+  name: "株式会社リロード",
+  alternateName: SITE_NAME,
   url: SITE_URL,
+  sameAs: ["https://reload.co.jp/"],
 }
 
 export function absoluteUrl(path: string): string {

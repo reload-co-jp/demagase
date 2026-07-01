@@ -2,7 +2,7 @@ import { FC } from "react"
 import Link from "next/link"
 import type { Metadata } from "next"
 import Script from "next/script"
-import { getAllArticles, getAllCategories } from "lib/articles"
+import { getAllArticles, getAllCategories, getTagsByFrequency } from "lib/articles"
 import { absoluteUrl, SITE_DESCRIPTION, SITE_NAME } from "lib/seo"
 import { ArticleCard } from "components/elements/article-card"
 import { TodayArticle } from "components/features/today-article"
@@ -42,8 +42,22 @@ const VERDICTS = [
 const Page: FC = () => {
   const articles = getAllArticles()
   const categories = getAllCategories()
+  const popularTags = getTagsByFrequency()
   const newArticles = articles.slice(0, 12)
   const featuredCategories = categories.slice(0, 10)
+  const homePageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "DemaGase",
+    url: absoluteUrl("/"),
+    description: SITE_DESCRIPTION,
+    inLanguage: "ja-JP",
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: absoluteUrl("/") },
+    about: featuredCategories.map((category) => ({
+      "@type": "Thing",
+      name: category,
+    })),
+  }
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -58,6 +72,11 @@ const Page: FC = () => {
 
   return (
     <div className="bookmark-shell">
+      <Script
+        id="home-page-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd) }}
+      />
       <Script
         id="home-item-list-json-ld"
         type="application/ld+json"
@@ -224,7 +243,7 @@ const Page: FC = () => {
             人気タグ
           </h2>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-            {[...new Set(articles.flatMap((article) => article.tags))]
+            {popularTags
               .slice(0, 18)
               .map((tag) => (
                 <Link

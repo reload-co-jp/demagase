@@ -43,6 +43,18 @@ const TagPage: FC<Props> = async ({ params }) => {
 
   if (articles.length === 0) notFound()
 
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${tag}の記事一覧 | ${SITE_NAME}`,
+    url: absoluteUrl(`/articles/tag/${slug}/`),
+    description: `「${tag}」タグの雑学・俗説検証記事一覧。出典付きでファクトチェック。`,
+    inLanguage: "ja-JP",
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+    publisher: ORGANIZATION,
+    about: { "@type": "Thing", name: tag },
+  }
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -69,6 +81,13 @@ const TagPage: FC<Props> = async ({ params }) => {
 
   return (
     <div>
+      <Script
+        id="tag-collection-page-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionPageJsonLd),
+        }}
+      />
       <Script
         id="tag-breadcrumb-json-ld"
         type="application/ld+json"

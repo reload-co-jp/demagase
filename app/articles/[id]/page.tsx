@@ -130,6 +130,16 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     publisher: ORGANIZATION,
     articleSection: article.category,
     keywords: [article.category, ...article.tags].join(", "),
+    about: { "@type": "Thing", name: article.category },
+    mentions: article.tags.map((tag) => ({ "@type": "Thing", name: tag })),
+    citation: article.sources
+      .filter((source) => source.url)
+      .map((source) => ({
+        "@type": "CreativeWork",
+        name: source.title,
+        url: source.url,
+        author: source.author,
+      })),
     isAccessibleForFree: true,
     articleBody: [
       article.claim,
@@ -148,6 +158,7 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     claimReviewed: article.claim,
     author: ORGANIZATION,
     publisher: ORGANIZATION,
+    reviewBody: article.explanation,
     itemReviewed: {
       "@type": "Claim",
       appearance: article.sources

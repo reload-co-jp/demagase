@@ -21,6 +21,25 @@ export function getAllTags(): string[] {
   return [...new Set(getAllArticles().flatMap((a) => a.tags))]
 }
 
+export function getTagsByFrequency(): string[] {
+  const counts = new Map<string, number>()
+
+  getAllArticles().forEach((article) => {
+    article.tags.forEach((tag) => {
+      counts.set(tag, (counts.get(tag) ?? 0) + 1)
+    })
+  })
+
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "ja"))
+    .map(([tag]) => tag)
+}
+
+export function getLatestArticleDate(): Date {
+  const [latest] = getAllArticles()
+  return latest ? new Date(latest.created_at) : new Date()
+}
+
 export function getArticlesByCategory(category: string): Article[] {
   return getAllArticles().filter((a) => a.category === category)
 }
