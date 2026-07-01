@@ -134,7 +134,7 @@ const Page: FC = () => {
             {featuredCategories.map((cat) => (
               <Link
                 key={cat}
-                href={`/articles/?category=${encodeURIComponent(cat)}`}
+                href={`/articles/category/${encodeURIComponent(cat)}/`}
                 style={{
                   color: "var(--text)",
                   fontSize: "0.84rem",
@@ -229,7 +229,7 @@ const Page: FC = () => {
               .map((tag) => (
                 <Link
                   key={tag}
-                  href={`/articles/?tag=${encodeURIComponent(tag)}`}
+                  href={`/articles/tag/${encodeURIComponent(tag)}/`}
                   className="tag"
                   style={{ textDecoration: "none" }}
                 >

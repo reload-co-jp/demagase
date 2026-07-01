@@ -285,7 +285,7 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
           {article.tags.map((tag) => (
             <Link
               key={tag}
-              href={`/articles/?tag=${encodeURIComponent(tag)}`}
+              href={`/articles/tag/${encodeURIComponent(tag)}/`}
               className="tag"
               style={{ textDecoration: "none" }}
             >

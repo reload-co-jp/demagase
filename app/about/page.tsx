@@ -2,7 +2,7 @@ import { FC } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
-import { ORGANIZATION, SITE_NAME, SITE_URL } from "lib/seo"
+import { ORGANIZATION, SITE_URL } from "lib/seo"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { Verdict } from "types/article"
 
