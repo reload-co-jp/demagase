@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
+import { DisplayAd } from "components/elements/display-ad"
 import { JsonLd } from "components/elements/json-ld"
 import { ORGANIZATION, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "lib/seo"
 import "./reset.css"
@@ -164,7 +165,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             minHeight: "calc(100dvh - 7rem)",
           }}
         >
+          <DisplayAd style={{ marginBottom: "1rem" }} />
           {children}
+          <DisplayAd style={{ marginTop: "2rem" }} />
         </main>
         <footer
           style={{
