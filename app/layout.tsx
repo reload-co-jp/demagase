@@ -50,6 +50,7 @@ export const metadata: Metadata = {
       { url: "/opengraph-image", width: 1200, height: 630, alt: "DemaGase" },
     ],
   },
+  other: { "google-adsense-account": "ca-pub-6542845006087970" },
   twitter: {
     card: "summary_large_image",
     title: "DemaGase｜雑学デマ検証サイト",
@@ -59,6 +60,7 @@ export const metadata: Metadata = {
 }
 
 const GA_MEASUREMENT_ID = "G-8PTS0V0KJM"
+const ADSENSE_CLIENT_ID = "ca-pub-6542845006087970"
 const isProduction = process.env.NODE_ENV === "production"
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -97,6 +99,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 gtag('config', '${GA_MEASUREMENT_ID}');
               `}
             </Script>
+            <Script
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+              strategy="afterInteractive"
+              crossOrigin="anonymous"
+            />
           </>
         )}
         <header
