@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
+import { JsonLd } from "components/elements/json-ld"
 import { ORGANIZATION, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "lib/seo"
 import "./reset.css"
 import "./globals.css"
@@ -80,11 +81,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
       <body>
-        <Script
-          id="website-json-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
-        />
+        <JsonLd data={siteJsonLd} />
+        <JsonLd data={{ "@context": "https://schema.org", ...ORGANIZATION }} />
         {isProduction && (
           <>
             <Script

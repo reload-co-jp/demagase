@@ -1,18 +1,32 @@
 import { FC } from "react"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { Article } from "types/article"
 import Link from "next/link"
-import Script from "next/script"
-import { getAllArticles, getArticleById } from "lib/articles"
+import {
+  getAllArticles,
+  getArticleById,
+  getCollectionsForArticle,
+  getConclusion,
+  getFaqs,
+  getRelatedArticles,
+  getUpdatedAt,
+} from "lib/articles"
+import { VERDICT_INFO } from "lib/taxonomy"
 import {
   absoluteUrl,
+  categoryPath,
+  collectionPath,
   getSeoDescription,
   ORGANIZATION,
   SITE_NAME,
-  SITE_URL,
+  verdictPath,
 } from "lib/seo"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { ArticleCard } from "components/elements/article-card"
+import { Breadcrumb } from "components/elements/breadcrumb"
+import { JsonLd } from "components/elements/json-ld"
+import { TagList } from "components/elements/tag-list"
 
 type Props = {
   params: Promise<{ id: string }>
@@ -35,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const article = getArticleById(id)
   if (!article) return {}
-  const description = getSeoDescription(article.explanation)
+  const description = getArticleDescription(article)
   return {
     title: article.title,
     description,
@@ -47,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `/articles/${id}/`,
       publishedTime: article.created_at,
-      modifiedTime: article.created_at,
+      modifiedTime: getUpdatedAt(article),
       section: article.category,
       tags: article.tags,
       images: [
@@ -67,6 +81,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 }
+
+function getArticleDescription(article: Article): string {
+  return getSeoDescription(
+    `${getConclusion(article)}${article.explanation}`,
+    120
+  )
+}
+
+const DEFAULT_AUTHOR = `${SITE_NAME}編集部`
 
 const Section: FC<{ label: string; children: React.ReactNode }> = ({
   label,
@@ -105,12 +128,13 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
   const article = getArticleById(id)
   if (!article) notFound()
 
-  const allArticles = getAllArticles()
-  const related = allArticles
-    .filter((a) => a.category === article.category && a.id !== article.id)
-    .slice(0, 3)
+  const related = getRelatedArticles(article)
+  const collections = getCollectionsForArticle(article)
+  const faqs = getFaqs(article)
+  const updatedAt = getUpdatedAt(article)
+  const author = article.author ?? DEFAULT_AUTHOR
   const articleUrl = absoluteUrl(`/articles/${article.id}/`)
-  const description = getSeoDescription(article.explanation)
+  const description = getArticleDescription(article)
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -123,10 +147,12 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     description,
     image: absoluteUrl(`/articles/${article.id}/opengraph-image`),
     datePublished: article.created_at,
-    dateModified: article.created_at,
+    dateModified: updatedAt,
     url: articleUrl,
     inLanguage: "ja-JP",
-    author: ORGANIZATION,
+    author: article.author
+      ? { "@type": "Person", name: article.author, url: absoluteUrl("/about/") }
+      : ORGANIZATION,
     publisher: ORGANIZATION,
     articleSection: article.category,
     keywords: [article.category, ...article.tags].join(", "),
@@ -141,13 +167,6 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
         author: source.author,
       })),
     isAccessibleForFree: true,
-    articleBody: [
-      article.claim,
-      article.explanation,
-      article.truth,
-      article.why_spread,
-      article.how_to_identify,
-    ].join("\n\n"),
   }
 
   const claimReviewJsonLd = {
@@ -179,86 +198,30 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
     },
   }
 
-  const breadcrumbJsonLd = {
+  const faqJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "ホーム",
-        item: `${SITE_URL}/`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "記事一覧",
-        item: `${SITE_URL}/articles/`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: article.title,
-        item: articleUrl,
-      },
-    ],
-  }
-
-  const relatedItemListJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: `${SITE_NAME} 関連記事`,
-    itemListElement: related.map((a, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: absoluteUrl(`/articles/${a.id}/`),
-      name: a.title,
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   }
 
   return (
     <article style={{ maxWidth: "920px", margin: "0 auto" }}>
-      <Script
-        id="article-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      <JsonLd data={articleJsonLd} />
+      <JsonLd data={claimReviewJsonLd} />
+      <JsonLd data={faqJsonLd} />
+      <Breadcrumb
+        items={[
+          { name: article.category, path: categoryPath(article.category) },
+          { name: article.title, path: `/articles/${article.id}/` },
+        ]}
       />
-      <Script
-        id="claimreview-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewJsonLd) }}
-      />
-      <Script
-        id="breadcrumb-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      {related.length > 0 && (
-        <Script
-          id="related-item-list-json-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(relatedItemListJsonLd),
-          }}
-        />
-      )}
-      {/* Breadcrumb */}
-      <nav
-        style={{
-          fontSize: "0.8125rem",
-          color: "var(--muted)",
-          marginBottom: "1.5rem",
-        }}
-      >
-        <Link href="/">ホーム</Link>
-        <span style={{ margin: "0 0.5rem" }}>/</span>
-        <Link href="/articles/">記事一覧</Link>
-        <span style={{ margin: "0 0.5rem" }}>/</span>
-        <span>{article.title}</span>
-      </nav>
 
       {/* Header */}
-      <header style={{ marginBottom: "2.5rem" }}>
+      <header style={{ marginBottom: "2rem" }}>
         <div style={{ marginBottom: "1rem" }}>
           <VerdictBadge verdict={article.verdict} size="lg" />
         </div>
@@ -278,10 +241,11 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
             gap: "0.5rem",
             flexWrap: "wrap",
             alignItems: "center",
+            marginBottom: "0.5rem",
           }}
         >
           <Link
-            href={`/articles/category/${encodeURIComponent(article.category)}/`}
+            href={categoryPath(article.category)}
             style={{
               fontSize: "0.8125rem",
               color: "var(--accent)",
@@ -293,30 +257,34 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
           >
             {article.category}
           </Link>
-          {article.tags.map((tag) => (
-            <Link
-              key={tag}
-              href={`/articles/tag/${encodeURIComponent(tag)}/`}
-              className="tag"
-              style={{ textDecoration: "none" }}
-            >
-              {tag}
-            </Link>
-          ))}
-          <time
-            dateTime={article.created_at}
-            style={{
-              fontSize: "0.8125rem",
-              color: "var(--muted)",
-              marginLeft: "auto",
-            }}
-          >
-            {article.created_at}
-          </time>
+          <TagList tags={article.tags} />
         </div>
+        <p style={{ fontSize: "0.8125rem", color: "var(--muted)" }}>
+          公開日 <time dateTime={article.created_at}>{article.created_at}</time>
+          {updatedAt !== article.created_at && (
+            <>
+              {" "}
+              / 最終更新日 <time dateTime={updatedAt}>{updatedAt}</time>
+            </>
+          )}{" "}
+          / 執筆 <Link href="/about/">{author}</Link>
+        </p>
       </header>
 
-      {/* Claim */}
+      <Section label="結論">
+        <p style={{ fontWeight: 600 }}>{getConclusion(article)}</p>
+      </Section>
+
+      <Section label="判定">
+        <VerdictBadge verdict={article.verdict} />
+        <p style={{ marginTop: "0.25rem" }}>
+          {VERDICT_INFO[article.verdict].description}{" "}
+          <Link href={verdictPath(article.verdict)}>
+            「{article.verdict_label}」と判定した記事の一覧
+          </Link>
+        </p>
+      </Section>
+
       <Section label="よくある説（俗説）">
         <p style={{ fontWeight: 600 }}>{article.claim}</p>
         <p style={{ marginTop: "0.5rem", color: "var(--muted)" }}>
@@ -324,27 +292,35 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
         </p>
       </Section>
 
-      {/* Verdict detail */}
       <Section label="検証">
         <p>{article.explanation}</p>
       </Section>
 
-      {/* Truth */}
       <Section label="実際の有力説">
         <p>{article.truth}</p>
       </Section>
 
-      {/* Why spread */}
       <Section label="なぜ広まったか">
         <p>{article.why_spread}</p>
       </Section>
 
-      {/* How to identify */}
       <Section label="見分け方">
         <p>{article.how_to_identify}</p>
       </Section>
 
-      {/* Sources */}
+      <Section label="よくある質問">
+        <dl
+          style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
+        >
+          {faqs.map((faq) => (
+            <div key={faq.question}>
+              <dt style={{ fontWeight: 700 }}>Q. {faq.question}</dt>
+              <dd>A. {faq.answer}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
       {article.sources.length > 0 && (
         <Section label="出典">
           <ul
@@ -375,7 +351,16 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
         </Section>
       )}
 
-      {/* Related */}
+      <Section label="この記事について">
+        <p style={{ fontSize: "0.875rem" }}>
+          執筆: {author} / 検証日: {article.created_at} / 最終更新日:{" "}
+          {updatedAt}
+          <br />
+          上記の出典をもとに検証しています。検証方針と運営者は
+          <Link href="/about/">このサイトについて</Link>をご覧ください。
+        </p>
+      </Section>
+
       {related.length > 0 && (
         <section style={{ marginTop: "3rem" }}>
           <h2 className="section-title">関連記事</h2>
@@ -384,6 +369,19 @@ const ArticleDetailPage: FC<Props> = async ({ params }) => {
               <ArticleCard key={a.id} article={a} />
             ))}
           </div>
+        </section>
+      )}
+
+      {collections.length > 0 && (
+        <section style={{ marginTop: "2rem" }}>
+          <h2 className="section-title">関連するまとめ</h2>
+          <ul style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1rem" }}>
+            {collections.map((c) => (
+              <li key={c.slug}>
+                <Link href={collectionPath(c.slug)}>{c.title}</Link>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </article>

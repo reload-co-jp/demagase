@@ -1,7 +1,7 @@
 import { FC } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import Script from "next/script"
+import { JsonLd } from "components/elements/json-ld"
 import { ORGANIZATION, SITE_URL } from "lib/seo"
 import { VerdictBadge } from "components/elements/verdict-badge"
 import { Verdict } from "types/article"
@@ -65,16 +65,8 @@ const AboutPage: FC = () => {
 
   return (
     <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-      <Script
-        id="about-breadcrumb-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <Script
-        id="about-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
-      />
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={aboutJsonLd} />
       <h1
         style={{ fontSize: "1.75rem", fontWeight: 800, marginBottom: "2rem" }}
       >

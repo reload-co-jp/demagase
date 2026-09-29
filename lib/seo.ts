@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://demagase.reload.co.jp"
 
@@ -24,4 +26,50 @@ export function getSeoDescription(text: string, length = 150): string {
   return normalized.length > length
     ? `${normalized.slice(0, length - 1)}…`
     : normalized
+}
+
+export function categoryPath(category: string): string {
+  return `/articles/category/${encodeURIComponent(category)}/`
+}
+
+export function tagPath(tag: string): string {
+  return `/articles/tag/${encodeURIComponent(tag)}/`
+}
+
+/** 一覧系ページ共通の title / description / canonical / OGP / robots */
+export function listPageMetadata({
+  title,
+  description,
+  path,
+  noindex = false,
+}: {
+  title: string
+  description: string
+  path: string
+  noindex?: boolean
+}): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    robots: { index: !noindex, follow: true },
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url: path,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${SITE_NAME}`,
+      description,
+    },
+  }
+}
+
+export function collectionPath(slug: string): string {
+  return `/collections/${slug}/`
+}
+
+export function verdictPath(verdict: string): string {
+  return `/verification/${verdict}/`
 }

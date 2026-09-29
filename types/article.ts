@@ -21,4 +21,15 @@ export type Article = {
   sources: Source[]
   tags: string[]
   created_at: string
+  /** 内容を見直した日。無ければ created_at */
+  updated_at?: string
+  /** 執筆者。無ければ DemaGase編集部 */
+  author?: string
+  /** 自動生成FAQに追加する記事固有のFAQ */
+  faq?: Faq[]
+}
+
+export type Faq = {
+  question: string
+  answer: string
 }

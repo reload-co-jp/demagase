@@ -1,14 +1,21 @@
 import { FC } from "react"
 import Link from "next/link"
+import { JsonLd } from "components/elements/json-ld"
 import type { Metadata } from "next"
-import Script from "next/script"
 import { getAllArticles, getAllCategories, getTagsByFrequency } from "lib/articles"
-import { absoluteUrl, SITE_DESCRIPTION, SITE_NAME } from "lib/seo"
+import {
+  absoluteUrl,
+  collectionPath,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  verdictPath,
+} from "lib/seo"
+import { COLLECTIONS, VERDICT_INFO, VERDICTS } from "lib/taxonomy"
 import { ArticleCard } from "components/elements/article-card"
 import { TodayArticle } from "components/features/today-article"
 
 export const metadata: Metadata = {
-  title: "DemaGase｜雑学デマ検証サイト",
+  title: { absolute: "DemaGase｜雑学デマ検証サイト" },
   description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
@@ -22,22 +29,6 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
   },
 }
-
-const VERDICTS = [
-  { icon: "❌", label: "誤り", desc: "根拠がなく、誤りと断定できる" },
-  {
-    icon: "⚠️",
-    label: "一部誤り",
-    desc: "部分的に正しいが、全体として誤解を招く",
-  },
-  {
-    icon: "🤔",
-    label: "有力説だが確定ではない",
-    desc: "有力な説だが、確定的な証拠がない",
-  },
-  { icon: "⭕", label: "正しい", desc: "根拠に基づいて正しいと言える" },
-  { icon: "❓", label: "不明", desc: "情報が不足しており判断できない" },
-]
 
 const Page: FC = () => {
   const articles = getAllArticles()
@@ -72,16 +63,8 @@ const Page: FC = () => {
 
   return (
     <div className="bookmark-shell">
-      <Script
-        id="home-page-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd) }}
-      />
-      <Script
-        id="home-item-list-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
+      <JsonLd data={homePageJsonLd} />
+      <JsonLd data={itemListJsonLd} />
       <div style={{ minWidth: 0 }}>
         <section
           style={{
@@ -101,9 +84,21 @@ const Page: FC = () => {
           >
             DemaGase
           </h1>
-          <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-            雑学・語源・俗説を出典ベースで検証する読み物サイト。
+          <p style={{ fontSize: "0.9rem", lineHeight: 1.8 }}>
+            DemaGase（デマガセ）は、雑学・語源・健康・歴史などの「よく聞くけれど本当？」という俗説を、官公庁・研究機関・辞書などの出典をもとに検証するサイトです。
+            「○○は本当？」「○○はなぜ？」と気になった説について、結論と判定を記事の冒頭で示し、よくある説、検証、実際の有力説、広まった理由、見分け方の順に整理しています。
           </p>
+        </section>
+
+        <section style={{ marginBottom: "1rem" }}>
+          <h2 className="section-title">テーマ別まとめ</h2>
+          <ul style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1rem" }}>
+            {COLLECTIONS.map((c) => (
+              <li key={c.slug}>
+                <Link href={collectionPath(c.slug)}>{c.title}</Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section style={{ marginBottom: "1rem" }}>
@@ -194,14 +189,15 @@ const Page: FC = () => {
           >
             {VERDICTS.map((v) => (
               <div
-                key={v.label}
+                key={v}
                 style={{
                   display: "flex",
                   gap: "0.65rem",
                   alignItems: "flex-start",
                 }}
               >
-                <span
+                <Link
+                  href={verdictPath(v)}
                   style={{
                     fontSize: "0.82rem",
                     fontWeight: 700,
@@ -209,8 +205,8 @@ const Page: FC = () => {
                     minWidth: "2.2rem",
                   }}
                 >
-                  {v.label}
-                </span>
+                  {VERDICT_INFO[v].label}
+                </Link>
                 <span
                   style={{
                     fontSize: "0.78rem",
@@ -218,7 +214,7 @@ const Page: FC = () => {
                     lineHeight: 1.55,
                   }}
                 >
-                  {v.desc}
+                  {VERDICT_INFO[v].description}
                 </span>
               </div>
             ))}

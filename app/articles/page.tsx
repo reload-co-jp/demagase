@@ -1,6 +1,6 @@
+import { JsonLd } from "components/elements/json-ld"
 import { Suspense } from "react"
 import type { Metadata } from "next"
-import Script from "next/script"
 import { getAllArticles, getAllCategories } from "lib/articles"
 import { absoluteUrl, SITE_NAME, SITE_URL } from "lib/seo"
 import { ArticleListClient } from "components/features/article-list-client"
@@ -61,21 +61,9 @@ const ArticlesPage = () => {
 
   return (
     <div>
-      <Script
-        id="articles-collection-page-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
-      />
-      <Script
-        id="articles-breadcrumb-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <Script
-        id="articles-item-list-json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
+      <JsonLd data={collectionPageJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={itemListJsonLd} />
       <div
         style={{
           background: "var(--surface)",
