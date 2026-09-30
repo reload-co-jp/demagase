@@ -13,7 +13,9 @@ const AdUnit: FC = () => {
   useEffect(() => {
     try {
       ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch {}
+    } catch (e) {
+      console.error("Adsense error:", e)
+    }
   }, [])
 
   return (
